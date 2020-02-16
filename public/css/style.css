@@ -1,9 +1,168 @@
 
-	
+
 /*	################################################################
 	2. SKELETON
 	################################################################# */
-	
+	.cart{
+    float: bottom;
+    color: #F7C221;
+}
+.main-section{
+    background-color: #F8F8F8;
+}
+.dropdown{
+    float:right;
+    padding-right: 30px;
+}
+.btn{
+    border:0px;
+    margin:10px 0px;
+    box-shadow:none !important;
+}
+.dropdown .dropdown-menu{
+    padding:20px;
+    top:30px !important;
+    width:350px !important;
+    left:-110px !important;
+    box-shadow:0px 5px 30px black;
+}
+.total-header-section{
+    border-bottom:1px solid #d2d2d2;
+}
+.total-section p{
+    margin-bottom:20px;
+}
+.cart-detail{
+    padding:15px 0px;
+}
+.cart-detail-img img{
+    width:100%;
+    height:100%;
+    padding-left:15px;
+}
+.cart-detail-product p{
+    margin:0px;
+    color:#000;
+    font-weight:500;
+}
+.cart-detail .price{
+    font-size:12px;
+    margin-right:10px;
+    font-weight:500;
+}
+.cart-detail .count{
+    color:#C2C2DC;
+}
+.checkout{
+    border-top:1px solid #d2d2d2;
+    padding-top: 15px;
+}
+.checkout .btn-primary{
+    border-radius:50px;
+    height:50px;
+}
+.dropdown-menu:before{
+    content: " ";
+    position:absolute;
+    top:-20px;
+    right:50px;
+    border:10px solid transparent;
+    border-bottom-color:#fff;
+}
+
+.thumbnail {
+    position: relative;
+    padding: 0px;
+    margin-bottom: 20px;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail .caption{
+    margin: 7px;
+}
+
+.page {
+    margin-top: 50px;
+}
+
+.btn-holder{
+    text-align: center;
+}
+
+.table>tbody>tr>td, .table>tfoot>tr>td{
+    vertical-align: middle;
+}
+@media screen and (max-width: 600px) {
+    table#cart tbody td .form-control{
+        width:20%;
+        display: inline !important;
+    }
+    .actions .btn{
+        width:36%;
+        margin:1.5em 0;
+    }
+
+    .actions .btn-info{
+        float:left;
+    }
+    .actions .btn-danger{
+        float:right;
+    }
+
+    table#cart thead { display: none; }
+    table#cart tbody td { display: block; padding: .6rem; min-width:320px;}
+    table#cart tbody tr td:first-child { background: #333; color: #fff; }
+    table#cart tbody td:before {
+        content: attr(data-th); font-weight: bold;
+        display: inline-block; width: 8rem;
+    }
+
+
+
+    table#cart tfoot td{display:block; }
+    table#cart tfoot td .btn{display:block;}
+
+}
+.center {
+    text-align: center;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination li {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid black;
+    margin: 0 4px;
+}
+
+.pagination li.active {
+    background-color: #F7C221;
+    color: white;
+    border: 1px solid #F7C221;
+}
+
+.pagination li:hover:not(.active) {background-color: #ddd;}
+
+.coly {
+    background-color: #F7C221;
+}
+
+.bb {
+    border-color: #000;
+}
+
+.coly {
+  color: #000
+}
 	body {
 		background:#fff;
 		color:#666666;
@@ -11,8 +170,8 @@
 		line-height:24px;
 		font-family: 'Raleway', sans-serif;
 	}
-	
-	
+
+
 	img.aligncenter {
 		margin-left: auto;
 		margin-right: auto;
@@ -61,15 +220,15 @@
 		position:relative;
 		background-color:#fff;
 	}
-	
-	
-	
+
+
+
 
 /*	############## ##################################################
 	2. Header Sections
 	################################################################# */
-	
-	.header {		
+
+	.header {
 		top:0;
 		z-index:0;
 		width:100%;
@@ -84,7 +243,7 @@
 		-moz-transform: translateY(0%);
 		transform: translateY(0%);
 	}
-	
+
 	.header.affix {
 		background:#000;
 		width:100%;
@@ -98,7 +257,7 @@
 		-moz-transition: all 0.8s;
 		transition: all 0.8s;
 	}
-	
+
 	.navbar-default {
 		background:none;
 		border:none;
@@ -109,7 +268,7 @@
 		text-transform:uppercase;
 		font-weight:600;
 	}
-	
+
 	.navbar-default .navbar-nav > li > a:hover,
 	.navbar-default .navbar-nav > li > a:focus,
 	.navbar-default .navbar-nav > li > a:active,
@@ -117,14 +276,14 @@
 		color:#f5f5f5;
 		border: 1px dashed;
 	}
-	.navbar-default .navbar-nav > .active > a, 
-	.navbar-default .navbar-nav > .active > a:hover, 
+	.navbar-default .navbar-nav > .active > a,
+	.navbar-default .navbar-nav > .active > a:hover,
 	.navbar-default .navbar-nav > .active > a:focus {
 		background:none;
 		border: 1px dashed #fff;
 		color: #FFFFFF;
 	}
-	
+
 	.feature-img img {
 		padding:100px 0;
 		margin:auto;
@@ -132,44 +291,44 @@
 	.features-widget {
 		margin-bottom:25px;
 	}
-	
+
 	.features-widget h3 {
 		color: #3C3B3B;
 		text-transform: uppercase;
 		font-weight: 500;
 		font-size: 20px;
 	}
-	
+
 	.features-widget p {
 		color: #3C3B3B;
 		letter-spacing: 1px;
 		font-weight: 400;
 		font-size: 12px;
 	}
-	
+
 	.borderright {
 		padding:0 25px;
 		border-right:1px solid #dddddd;
 	}
-	
+
 	.borderleft {
 		padding:0 25px;
 		border-left:1px solid #dddddd;
 	}
-	
+
 	.title hr {
 		width:40%;
 		border-color:#dddddd;
 	}
-	
-	
+
+
 	.title h2 {
 		color:#3C3B3B;
 		text-transform:uppercase;
 		font-weight:700;
 		font-size: 24px;
 	}
-	
+
 	.transparent .title h2 {
 		border: 1px dashed #111;
 		display: inline-block;
@@ -177,12 +336,12 @@
 		padding: 0 0 25px;
 		text-transform: none;
 	}
-	
+
 	.title p {
 		letter-spacing:1px;
 		color:#999999;
 	}
-	
+
 	.progress {
 		position:relative;
 		overflow:visible
@@ -191,7 +350,7 @@
 		position:absolute;
 		right:0;
 		font-weight:bold;
-		font-size:16px; 
+		font-size:16px;
 		color:#222;
 		top:-9px
 	}
@@ -215,11 +374,11 @@
 	#accordion-second .accordion-group{
 		margin-bottom:10px;
 	}
-	
+
 	.widget a {
 	color: #F7C221;
 	}
-	
+
 	#accordion-second .accordion-heading{
 		border-bottom:0;
 		font-size:16px;
@@ -252,7 +411,7 @@
 	#accordion-second .accordion-inner{
 		padding:9px 10px;
 		background:#f5f5f5;
-	}	
+	}
 	#accordion-first .accordion-group{
 		margin-bottom:10px;
 	}
@@ -304,27 +463,27 @@
 		margin-bottom:4px;
 	}
 	.check {
-		margin-left:0; 
+		margin-left:0;
 		padding-left:0
 	}
 	.check li a {
 		color:#656565;
 	}
-	
+
 	.widget-wrapper {
 		display: block;
 		padding: 50px 0;
 		position: relative;
 		background-color: #FFF;
 	}
-	
-	
+
+
 	.widget {
 		margin:40px 0;
 		color:#999999;
 		padding:0;
 	}
-	
+
 	.widget h3 {
 		margin:20px 0;
 		font-size:16px;
@@ -332,11 +491,11 @@
 		color:#3C3B3B;
 		font-weight:500;
 	}
-	
+
 	.progress-bar {
 		background-color: #F7C221;
 	}
-	
+
 	/*Main Carousel CSS*/
 
 	#home-carousel  .item {
@@ -354,7 +513,7 @@
 		font-size:15px;
 		text-align:left;
 		color:#fff;
-		text-shadow:none;	
+		text-shadow:none;
 	}
 
 	.carousel-caption h1 {
@@ -411,12 +570,12 @@
 		position: relative;
 	}
 
-	.home-carousel-left, 
-	.home-carousel-right {	
+	.home-carousel-left,
+	.home-carousel-right {
 		position: absolute;
 		font-size: 30px;
 		z-index: 15;
-		color:#fff;	
+		color:#fff;
 	}
 
 	.home-carousel-left {
@@ -460,9 +619,9 @@
 	.form-control:focus {
 		border-color: #E9BF66 !important;
 	}
-		
-		
-	
+
+
+
 /*	################################################################
 	3. Home Slider Section
 	################################################################# */
@@ -485,7 +644,7 @@
 		zoom: 1;
 	}
 	.home-wrapper {
-		background: url(demos/home-banner.png) no-repeat center center fixed; 
+		background: url(demos/home-banner.png) no-repeat center center fixed;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;
@@ -498,7 +657,7 @@
 		z-index:1;
 		width:100%;
 	}
-	
+
 	#owl-intro h2 {
 		font-size: 36px;
 		font-weight: 300;
@@ -507,9 +666,9 @@
 		margin:220px auto;
 		text-align:center;
 		padding: 20px;
-		
+
 	}
-	
+
 	.sliderbigtitle {
 		font-size: 36px;
 		font-weight: 300;
@@ -519,9 +678,9 @@
 		text-align:center;
 		padding: 20px;
 		line-height: 35px;
-		
+
 	}
-	
+
 	.slidersmalltitle {
 		font-size: 12px;
 		font-weight: 500;
@@ -532,7 +691,7 @@
 		padding: 20px;
 		line-height: 1.5;
 	}
-	
+
 	.sliderbigtitle hr {
 		border-color: #F7C221;
 		width: 40%;
@@ -543,7 +702,7 @@
 		width: 40%;
 		}
 
-	
+
 	#owl-intro p {
 		font-size: 12px;
 		font-weight: 500;
@@ -553,13 +712,13 @@
 		text-align: center;
 		padding: 20px;
 	}
-	
+
 	#owl-intro h2 hr {
 		border-color:#F7C221;
 		width:40%;
 	}
-	
-		
+
+
 	.intro-icon {
 		margin: 0 auto;
 		padding: 0 0 20px 0;
@@ -574,7 +733,7 @@
 		font-size: 50px;
 		color: #FFF;
 	}
-	
+
 	.feature-wrapper {
 		z-index: 1;
 		display: block;
@@ -582,17 +741,17 @@
 		position: relative;
 		background-color: #F7F7F7;
 	}
-	
+
 	.feature-img {
 		margin-bottom: -40px;
 	}
-	
-	
+
+
 	/*
-	* 	Slider Revolutions 
-	*	
+	* 	Slider Revolutions
+	*
 	*/
-	
+
 	@keyframes animatedBackground {
 		0% { background-position: 0 0; }
 		100% { background-position: -31000px 0; }
@@ -613,7 +772,7 @@
 		0% { background-position: 0 0; }
 		100% { background-position:-31000px 0; }
 	}
-	 
+
 	#animate-area img {
 		width:100%;
 		height:100%;
@@ -722,10 +881,10 @@
 	.slides-navigation a.next {
 		right: 0;
 	}
-	
-	.boxedcontainer {	
-		max-width: 1170px; 
-		margin:auto; 
+
+	.boxedcontainer {
+		max-width: 1170px;
+		margin:auto;
 		padding:0px 30px;
 	}
 	.tp-banner-container {
@@ -741,12 +900,12 @@
 		width:100%;
 		position:relative;
 		padding:0;
-	}	
-	
+	}
+
 	.tp-bullets.simplebullets.navbar {
 		height: 35px;
 		padding: 0px 0px;
-	
+
 	}
 	.tp-bullets.simplebullets .bullet {
 		cursor: pointer;
@@ -804,13 +963,13 @@
 		border-color: #F7C221 !important;
 	}
 	.slides-navigation a,
-	.tp-leftarrow, 
-	.tp-rightarrow{ 
+	.tp-leftarrow,
+	.tp-rightarrow{
 		opacity:0.9 !important;
 		filter:alpha(opacity=90); /* For IE8 and earlier */
 	}
 	.slides-navigation a:hover,
-	.tp-leftarrow:hover, 
+	.tp-leftarrow:hover,
 	.tp-rightarrow:hover{
 		filter:alpha(opacity=100); /* For IE8 and earlier */
 		opacity:1 !important;
@@ -837,20 +996,20 @@
 	.tparrows:hover {
 		background: rgba(0, 0, 0, 0) !important;
 	}
-	
-		
+
+
 	/*
-	* 	Owl Carousel 
+	* 	Owl Carousel
 	*	v1.3.3
 	*/
-	
+
 	.owl-theme .owl-controls{
 		margin-top: 10px;
 		text-align: center;
 	}
-	
+
 	/* Styling Next and Prev buttons */
-	
+
 	.owl-theme .owl-controls .owl-buttons div{
 		color: #FFF;
 		display: inline-block;
@@ -873,9 +1032,9 @@
 		opacity: 1;
 		text-decoration: none;
 	}
-	
+
 	/* Styling Pagination*/
-	
+
 	.owl-theme .owl-controls .owl-page{
 		display: inline-block;
 		zoom: 1;
@@ -893,15 +1052,15 @@
 		border-radius: 20px;
 		background: #869791;
 	}
-	
+
 	.owl-theme .owl-controls .owl-page.active span,
 	.owl-theme .owl-controls.clickable .owl-page:hover span{
 		filter: Alpha(Opacity=100);/*IE7 fix*/
 		opacity: 1;
 	}
-	
+
 	/* If PaginationNumbers is true */
-	
+
 	.owl-theme .owl-controls .owl-page span.owl-numbers{
 		height: auto;
 		width: auto;
@@ -912,14 +1071,14 @@
 		-moz-border-radius: 30px;
 		border-radius: 30px;
 	}
-	
+
 	/* preloading images */
 	.owl-item.loading{
 		min-height: 150px;
 		background: url(images/AjaxLoader.gif) no-repeat center center
 	}
-	
-	
+
+
 	.parallax {
 		background-attachment: fixed !important;
 		background-position: center center;
@@ -930,7 +1089,7 @@
 	   height: 100vh;
 		position:relative;
 	}
-	
+
 	.customoverlay {
 		padding: 60px 0;
 		position: absolute;
@@ -940,28 +1099,28 @@
 		top: 0;
 		background-color: rgba(0, 30, 35, 0.8);
 	}
-	
+
 /*	################################################################
 	4. ABOUT SECTION
 	################################################################# */
-	
+
 	.about-wrapper {
 		display: block;
 		padding: 50px 0;
 		position: relative;
 		background-color: #FFF;
 	}
-	
+
 	.about-box img {
 		padding-bottom:15px;
-		
+
 		}
 	.about-box {
 		margin:40px 0;
 		color:#999999;
 		padding:0;
 	}
-	
+
 	.about-box h3 {
 		margin:20px 0;
 		font-size:16px;
@@ -969,23 +1128,23 @@
 		color:#3C3B3B;
 		font-weight:500;
 	}
-	
+
 	.how-box img {
 		padding: 15px;
 		}
-	
+
 	.how-box {
 		margin:60px 40px 0;
 		color:#999999;
 		padding:0;
 	}
-	
+
 	.how-box-head {
 		margin:40px 0;
 		color:#999999;
 		padding:0;
 	}
-	
+
 	.how-box h3 {
 		margin:10px 0;
 		font-size:16px;
@@ -993,45 +1152,45 @@
 		color:#3C3B3B;
 		font-weight: 700;
 	}
-	
+
 	.how-box-head h2 {
 		margin: 0px 0;
 		font-size: 22px;
 		color: #3C3B3B;
 		font-weight: 600;
-		
+
 	}
-	
+
 	.how-box-head.makebg1 {
 		padding:32px;
 		height:300px;
 		margin:10px !important;
 		background:url(demos/aboutbox1.png) no-repeat left center;
 	}
-	
+
 	.how-box-head.makebg2 {
 		padding:32px;
 		height:300px;
 		margin:10px !important;
 		background:url(demos/aboutbox2.png) no-repeat left center;
 	}
-	
+
 	.how-box-head h3 {
 		margin: 0px 0;
 		font-size: 16px;
 		color: #F7C221;
 		font-weight: 500;
 	}
-	
+
 	.about-border .fa {
 	font-size: 40px;
 	color: #F7C221;
 	}
-	
+
 /*	################################################################
 	5. SERVICE SECTION
-	################################################################# */	
-	
+	################################################################# */
+
 	.service-box img {
 		padding-right:15px;
 		margin-right:5px;
@@ -1041,12 +1200,12 @@
 		color:#999999;
 		padding:0;
 	}
-	
+
 	.service-box p {
 		padding-left: 80px;
 		margin-top: -10px;
 	}
-	
+
 	.service-box h3 {
 		margin: 20px 0;
 		font-size: 16px;
@@ -1055,7 +1214,7 @@
 		font-weight: 500;
 		padding-left: 80px !important;
 	}
-	
+
 	#testimonials .item{
 		background: #3fbf79;
 		padding: 30px 0px;
@@ -1077,21 +1236,21 @@
 		user-select: none;
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	}
-	
+
 	.service-border .fa {
 		font-size: 40px;
 		color: #F7C221;
 		}
-		 
+
 /*	################################################################
 	6. SKILL SECTION
 	################################################################# */
-		
+
 	.overlay {
 		padding:60px 0;
 		background-color: rgba(150, 119, 25, 0.68);
 		}
-		
+
 	.skill h3 {
 		color:#ffffff;
 		text-transform:uppercase;
@@ -1100,16 +1259,16 @@
 		display:block;
 		font-size:15px;
 		}
-		
+
 	.skill p {
 		color:#ffffff;
 		}
-		
+
 	.skill {
 		margin:0 auto;
 		display:block;
 		position:relative;
-		text-align:center; 
+		text-align:center;
 		}
 	.percent {
 		top: 28%;
@@ -1125,7 +1284,7 @@
 		width: 170px;
 		z-index: 10;
 		}
-	
+
 /*	################################################################
 	7. TESTIMONIAL SECITON
 	################################################################# */
@@ -1137,14 +1296,14 @@
 		display: inline-block;
 		padding: 20px;
 	}
-	
+
 	.testimonial p {
 		font-weight: 600;
 		font-size: 15px;
 		color: #999;
 		padding: 30px 0 2px 0px;
 	}
-	
+
 	.testimonial h1 {
 		font-weight: 700;
 		font-size: 15px;
@@ -1152,15 +1311,15 @@
 		text-transform: uppercase;
 		padding-bottom: 30px;
 	}
-	
+
 	.fa-2x {
 		color: #ABABAB;
 	}
-	
+
 /*	################################################################
 	8. PORTFOLIO SECTION
     ################################################################# */
-	
+
 	/* ----------------------------------------------------
 	PORTFOLIO STYLES
 ------------------------------------------------------- */
@@ -1169,7 +1328,7 @@
 		font-size:24px;
 		text-transform:none;
 		margin-top:0;
-		padding-top:0;	
+		padding-top:0;
 	}
 	.product_details ul li {
 		list-style:none;
@@ -1221,7 +1380,7 @@
 		margin-bottom:20px;
 	}
 	.portfolio-filter ul {
-		list-style:none; 
+		list-style:none;
 		padding-left:10px
 	}
 	.portfolio-filter {
@@ -1346,7 +1505,7 @@
 		-o-transform: scale(1);
 		transform: scale(1);
 	}
-	.entry:hover .magnifier { 
+	.entry:hover .magnifier {
 		opacity: 1;
 		visibility: visible;
 	}
@@ -1371,21 +1530,21 @@
 		transform: scale(1);
 	}
 
-	
-	
+
+
 /*	################################################################
 	10. PRICING SECTION
 	################################################################# */
-	
+
 	.pricing-box:hover {
 		border-top: 1px solid #F7C221;
-	
+
 	}
-	
+
 	.bigstar {
 		font-size:16px !important
 	}
-	
+
 	.pricing-box .hideme {
 		display:none !important;
 	}
@@ -1405,11 +1564,11 @@
 		margin:40px 0;
 		padding:20px;
 	}
-	
+
 	.pricing-box:hover {
 		color: #F7C221;
 	}
-	
+
 	div.price {
 		border-radius:500px;
 		font-size:24px;
@@ -1417,7 +1576,7 @@
 		text-align:center;
 		font-weight:400;
 	}
-	
+
 	.price-value {
 		padding-top: 20px;
 		font-size: 62px;
@@ -1425,12 +1584,12 @@
 		text-align: center;
 		font-weight: 600;
 	}
-	
+
 	.price-value sub {
 		font-size:21px;
 		vertical-align: 40px;
 	}
-	
+
 	.price-month {
 		padding: 0 0 30px 0;
 		font-size: 12px;
@@ -1439,13 +1598,13 @@
 		font-weight: 500;
 		text-transform: uppercase;
 	}
-	
+
 	.pricing-box h3 {
 		font-size: 16px;
 		font-weight: 700;
 		text-transform: uppercase;
 	}
-	
+
 	.jtbtn {
 		display: inline-block;
 		padding: 6px 13px;
@@ -1463,16 +1622,16 @@
 		margin-top: 30px;
 		text-transform: uppercase;
 	}
-	
+
 	.jtbtn:hover {
 		text-decoration:none;
 	}
-	
+
 	.pricing {
 		list-style:none;
 		padding:0;
 	}
-	
+
 	.pricing li {
 		font-size: 13px;
 		line-height: 41px;
@@ -1485,15 +1644,15 @@
 		}
 	ul.pricing {
 		border: 1px dashed #fff;
-	}		
+	}
 	ul.pricing:hover {
 		border: 1px dashed #DADADA;
-	}	
-		
+	}
+
 /*	################################################################
 	11. TEAM SECTION
 	################################################################# */
-	
+
 	.team-wrapper {
 		z-index: 1;
 		display: block;
@@ -1501,18 +1660,18 @@
 		position: relative;
 		background-color: #fff;
 	}
-		
+
 	.team-box img {
 		padding-bottom:15px;
 		margin-bottom:30px;
 		}
-		
+
 	.team-box {
 		margin: 40px 0 100px 0;
 		color:#999999;
 		padding:0;
 		}
-	
+
 	.team-box h3 {
 		margin: 20px 0;
 		font-size: 16px;
@@ -1520,25 +1679,25 @@
 		color: #3C3B3B;
 		font-weight: 600;
 	}
-	
+
 	.team-box p {
 		margin-top: -15px !important;
 		font-weight: 500;
 		font-size: 12px;
 		text-transform: uppercase;
-		
+
 	}
-	
+
 	.team-social-icons img {
 		border: none;
 		padding: 25px 0px 25px 5px;
 	}
-		
+
 	.greatideas {
 		text-align: center;
 		margin: 70px 0 0 0;
-	}	
-	
+	}
+
 	.featured-box img {
 		width:100%;
 		margin-bottom:-100px;
@@ -1548,7 +1707,7 @@
 		color:#999999;
 		padding:0;
 	}
-	
+
 	.featured-box h3 {
 		color: #FFF;
 		font-weight: 600;
@@ -1556,25 +1715,25 @@
 		text-align: center;
 		padding: 25px;
 	}
-	
+
 	.social-icons .fa {
 		color: #F7C221;
 		}
-		
+
 /*	################################################################
 	12. STATS COUNT SECTION
 	################################################################# */
-	
+
 	.stat {
 	   margin:0px auto;
 	   text-align:center;
 	}
-	
+
 	.milestone-counter img {
 		float: left;
 		padding: 10px;
 	}
-	
+
 	.highlight {
 	   color:#fff;
 	   padding:20px 0;
@@ -1596,34 +1755,34 @@
 		color: #FFF;
 		padding: 0 0 10px 10px;
 		}
-	   
+
 /*	################################################################
 	13. CONTACT AND MAP SECTION
 	################################################################# */
-	
+
 	#success_page h1 {
 		font-size:24px;
-		font-weight:bold; 
+		font-weight:bold;
 		text-transform:uppercase;
 	}
-	
+
 	.loader1 {
     vertical-align: super;
     padding-left: 20px;
 }
-	
+
 	.form-control {
 		border-radius: 0 !important;
 		box-shadow: none !important;
 	}
-	
+
 	.contact-wrapper {
 		display:block;
 		padding:70px 0;
 		position:relative;
 		background-color:#fff;
 	}
-	
+
 	#contactform {
 		margin:30px 0;
 		}
@@ -1632,16 +1791,16 @@
 		height: 50px;
 		font-weight: 500;
 		font-size: 12px;
-		}	
-		
+		}
+
 	#contactform textarea {
 		height:150px !important;
 		}
-	
-	#contactform span.required{ 
-		font-size: 13px; color: #ff0000; 
-		} 
-	
+
+	#contactform span.required{
+		font-size: 13px; color: #ff0000;
+		}
+
 	.btn-primary {
 		display: inline-block;
 		padding: 6px 13px;
@@ -1659,7 +1818,7 @@
 		margin-top: 30px;
 		text-transform: uppercase;
 	}
-	
+
 	.contact-box img {
 		padding-bottom:15px;
 		margin-bottom:30px;
@@ -1669,7 +1828,7 @@
 		color:#999999;
 		padding:0;
 	}
-	
+
 	.contact-box h2 {
 		margin: 20px 0;
 		font-size: 13px;
@@ -1677,13 +1836,13 @@
 		color: #3C3B3B;
 		font-weight: 700;
 	}
-	
+
 	.btn-contact:hover {
 		background: none !important;
 		border-color: #F7C221 !important;
 	}
-	
-	
+
+
 	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
 		font-weight: 700 !important;
 		font-size: 12px !important;
@@ -1694,7 +1853,7 @@
 		letter-spacing: 3px;
 		color: #F7C221 !important;
 	}
-	
+
 	.nav-tabs > li > a {
 		border: none !important;
 		background: none !important;
@@ -1706,28 +1865,28 @@
 		letter-spacing: 3px !important;
 		color: #999 !important;
 	}
-	
+
 	.nav-tabs {
 		border: 0 !important;
 		padding-bottom: 40px;
 	}
-	
+
 	.btn-contact {
 		border-radius:0 !important;
 		margin-bottom: 75px;
 		}
-			
+
 	.btn-contact:hover {
 		background:none  !important;
 		margin-bottom: 75px;
 		}
-			
+
 	.nav-tabs > li {
 		float:none;
 		margin:20px 10px 0 !important;
 		display:inline-block;
-		}	
-		
+		}
+
 	#map{
 		height:450px;
 		width:100%;
@@ -1742,7 +1901,7 @@
 	.map .row{
 		position:relative
 		}
-		
+
 	.infobox img {
 		width:100% !important;
 	}
@@ -1770,66 +1929,66 @@
 	.infobox .title a {
 		font-weight:bold;
 	}
-		
+
 	.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
 	color: #FFF !important;
 	background-color: #F7C221 !important;
 	border-color: #F7C221 !important;
 	}
-	
+
 	.error_message {
 	color: #F00!important;
 	}
-	
+
 	.contact-box .fa {
 		font-size: 40px;
 		color: #F7C221;
 	}
-			
-	
+
+
 /*	################################################################
 	14. FOOTER SECTION
 	################################################################# */
-	
+
 	.footer-wrapper {
 		display:block;
 		padding:50px 0;
 		position:relative;
 		background-color:#000;
 	}
-	
+
 	.footer-wrapper img {
 		padding: 15px;
 	}
-	
+
 	.footer-wrapper p {
 		font-weight: 600;
 		font-size:11px;
 		color: #FFF;
 	}
-	
+
 	i.fa.fa-angle-up {
 		color: #FFF;
 		font-size: 30px;
 		padding: 10px;
-	}	
-	
+	}
+
 	.social-icons img {
 		border: none;
 		padding: 30px 0px 30px 5px;
 	}
-	
+
 	.footer .socialFooter {
 		margin: 0 auto;
 		text-align: center;
 		}
-		
+
 	.socialFooter .fa {
 		color: #FFF;
 		font-size: 20px;
 		margin: 20px 0 20px 10px;
 	}
-		
+
 	.footer .socialFooter a {
 		color: #bbb;
 		font-size: 26px;
@@ -1841,7 +2000,7 @@
 		color: #414655;
 		border-bottom: 3px solid #414655;
 	}
-	
+
 	.hovereffect .icon {
 		font-size: 31px;
 		font-weight: 300;
@@ -1855,7 +2014,7 @@
 		text-align: center;
 		width: 75px;
 		}
-		
+
 	.hovereffect h4 {
 		text-align:center;
 		font-size:20px;
@@ -1866,7 +2025,7 @@
 		display:block;
 		font-weight:700;
 		}
-		
+
 	.hovereffect h5 {
 		text-align:center;
 		font-size:12px;
@@ -1878,7 +2037,7 @@
 		display:block;
 		font-weight:700;
 		}
-		
+
 	.hovereffect h4,
 	.hovereffect .icon {
 		color:#fff;
@@ -1912,13 +2071,13 @@
 		-o-transform: scale(1);
 		transform: scale(1);
 		}
-		.entry:hover .hovereffect { 
+		.entry:hover .hovereffect {
 		opacity: 1;
 		visibility: visible;
 		}
 		.entry {
 		display:block;
-		position:relative;	
+		position:relative;
 	}
 	.hovereffect {
 		background-color:rgba(0,0,0,0.6);
@@ -1939,36 +2098,36 @@
 		-o-transform: scale(1);
 		transform: scale(1);
 		}
-		
-	
-	
+
+
+
 /*	################################################################
 	15. VIDEO PARALLEX
 	################################################################# */
-		
+
 	#videobgfull {
 		width:100% !important;
 		min-height:500px !important;
 		max-height:100% !important;
 		position:relative !important;
 	}
-	
+
 	.videooverlay {
 		padding: 100px 0;
 		background-color: rgba(247, 194, 33, 0.34);
 	}
-	
+
 	.videooverlay .general-title h2 {
 		color:#fff;
 	}
-	
+
 	.video-js {width:100%; height:100%;}
-	
+
 	#revvideo {
 		width:100% !important;
 		height:100% !important;
 	}
-			
+
 	#volume {
 		bottom: 0;
 		color: #ffffff;
@@ -1984,7 +2143,7 @@
 		background: #3C3B3B;
 		border: 1px dashed #222;
 	}
-	
+
 	.js-video {
 		height: 0;
 		padding-top: 25px;
@@ -2000,8 +2159,8 @@
 	.js-video.vimeo {
 		padding-top: 0;
 		border:1px solid #ffffff;
-	}	
-	
+	}
+
 	.js-video embed, .js-video iframe, .js-video object, .js-video video {
 		top: 0;
 		left: 0;
@@ -2009,18 +2168,18 @@
 		height: 100%;
 		position: absolute;
 	}
-	
+
 	.mb_YTVPlayer {z-index:-10;}
 	.videobg {
-		padding:0; 
+		padding:0;
 		color:#ffffff !important;
 	}
-	
+
 	.videobg-wrap .general-title hr {
 		background-color:#ffffff;
 	}
 	.videobg-wrap { background-color: rgba(247, 194, 33, 0.5);padding:30px 0 0}
-	
+
 	.animationload {
 		position: fixed;
 		top:0;
@@ -2043,16 +2202,16 @@
 		background-position:center;
 		margin:-100px 0 0 -100px; /* is width and height divided by two */
 	}
-	
-	
+
+
 /*	################################################################
 	16. COLOR SCHEME
 	################################################################# */
-	
+
 	.pricing-box:hover .pricing {
 		background-color:#ededed;
 	}
-	
+
 	.pricing-box:hover .price-value,
 	.pricing-box:hover .price-month,
 	.hovereffect h5  {
@@ -2062,53 +2221,53 @@
 	.navbar-default .navbar-nav > li > a:focus,
 	.navbar-default .navbar-nav > li > a:active,
 	.navbar-default .navbar-nav > li > a.active,
-	.navbar-default .navbar-nav > .active > a, 
-	.navbar-default .navbar-nav > .active > a:hover, 
+	.navbar-default .navbar-nav > .active > a,
+	.navbar-default .navbar-nav > .active > a:hover,
 	.navbar-default .navbar-nav > .active > a:focus,
 	.transparent .title h2 {
 		border-color:#F7C221;
 	}
-	
-		
-	
+
+
+
 /*	################################################################
 	17. BLOG SECTION
 	################################################################# */
-	
+
 	#whiteheader {background-color:#fff !important;}
-	
-	#whiteheader .navbar-default .navbar-nav > li > a 
+
+	#whiteheader .navbar-default .navbar-nav > li > a
 	{
 		color: #999;
 		font-weight: 600;
 		font-size: 12px;}
-	
+
 	.blog-main #intro {
 		padding: 75px 0px 42px;
 		background: #3C3B3B;
 	}
-	
+
 	.main-content {
 		position: relative;
 		background: #FFF;
 		padding: 60px 0 105px;
 	}
-	
-	
+
+
 	.sidebar-widget {
 		margin-bottom: 60px;
 	}
-	
+
 	.sidebar-widget h5 {
 		font-weight: 500;
 		font-size: 16px;
 		color: #3C3B3B;
 	}
-	
+
 	.search {
 		position: relative;
 	}
-	
+
 	.search input {
 		height: 45px;
 		border: 1px dashed #ddd;
@@ -2117,7 +2276,7 @@
 		font-size: 14px;
 		position: relative;
 	}
-	
+
 	.search:before {
 		content: "\f002";
 		font-family: FontAwesome;
@@ -2128,15 +2287,15 @@
 		color: #888888;
 		z-index: 999;
 	}
-	
+
 	.blog-carousel-header a {
 		color: #F7C221;
 	}
-	
+
 	.recentpost-list {
 		padding: 0;
 	}
-	
+
 	.recentpost-list li {
 		list-style: none;
 		font-size: 16px;
@@ -2145,11 +2304,11 @@
 		padding-left: 0;
 		position: relative;
 	}
-	
+
 	.recentpost-list li img {
 		float: left;
 	}
-	
+
 	.recentpost-list li h4 {
 		font-size: 13px;
 		font-weight: 400;
@@ -2157,27 +2316,27 @@
 		margin-left: 80px;
 		color: #999;
 	}
-	
+
 	.recentpost-list li h4 a {
 		color: #999;
 	}
-	
+
 	.recentpost-list li h4 a:hover {
 		color: #F7C221;
 	}
-	
+
 	.recentpost-list li span {
 		font-size: 12px;
 		color: #aaaaaa;
 		margin-left: 13px;
 		font-style: italic;
 	}
-	
-	
+
+
 	.category-list {
 		padding: 0;
 	}
-	
+
 	.category-list li {
 	list-style: none;
 	font-size: 14px;
@@ -2188,33 +2347,33 @@
 	border-left: 1px solid #DDD;
 	padding: 2px 0px 0px 20px;
 	}
-	
-	
+
+
 	.category-list li a {
 		color: #999;
 	}
-	
+
 	.category-list li a:hover {
 		color: #F7C221;
 		text-decoration:none !important;
 	}
-	
+
 	.category-list li:hover {
 		border-left: 1px solid #F7C221;
-		
+
 	}
-	
+
 	.tags-list {
 		padding: 0;
 	}
-	
+
 	.tags-list li {
 		float: left;
 		margin-right: 4px;
 		margin-bottom: 7px;
 		list-style: none;
 	}
-	
+
 	.tags-list li a {
 		background: #fff;
 		border: 1px dashed #ddd;
@@ -2223,19 +2382,19 @@
 		display: table;
 		font-size: 14px;
 	}
-	
+
 	.tags-list li a:hover {
 		background: #F7C221;
 		border: 1px dashed #F7C221;
 		color: #fff;
 	}
-	
+
 	.blog-ico {
 		width: 70px;
 		height: 90px;
 		float: left;
 	}
-	
+
 	.blog-ico i {
 		width: 70px;
 		height: 70px;
@@ -2243,13 +2402,13 @@
 		font-size: 40px;
 		line-height: 70px;
 	}
-	
+
 	.blog-content img {
 		padding-right: 15px;
 		margin-right: 30px;
 		display: block;
 	}
-	
+
 	article p {
 		font-size: 13px;
 		color: #999;
@@ -2257,49 +2416,49 @@
 		margin-top: 20px;
 		font-weight: 500;
 	}
-	
+
 	article {
 		padding-bottom: 50px;
 		margin-bottom: 40px;
-		
+
 	}
-	
+
 	.post-head {
 		margin-top: 30px;
 		display:block;
 		width: 100%;
 		margin-bottom: 5px;
 	}
-	
+
 	article h4 {
 		font-size: 22px;
 		color: #3C3B3B;
 		font-weight: 400;
 	}
-	
+
 	article h4 a {
 		color: #3C3B3B;
 	}
-	
+
 	article h4 a:hover {
 		color: #F7C221;
 	}
-	
-	
+
+
 	.post-date a {
 		font-size: 12px;
 		color: #999;
 		font-weight: 500;
 		display: block;
 	}
-	
+
 	.post-meta a {
 		font-size: 12px;
 		color: #F7C221;
 		font-weight: 500;
 	}
-	
-	
+
+
 	.blogvideo , .iaudio {
 		position: relative;
 		overflow: hidden;
@@ -2308,13 +2467,13 @@
 		margin-right: 30px;
 		display: block;
 	}
-	
+
 	.iaudio {
 		padding-bottom: 22.25%;
 		margin-top: 30px;
-		
+
 	}
-	
+
 	.video iframe,.video object,.video embed ,
 	.iaudio iframe,.iaudio object,.iaudio embed {
 		position: absolute;
@@ -2324,7 +2483,7 @@
 		height: 100%;
 		border:none;
 	}
-	
+
 	.blockquote {
 		font-size: 13px;
 		color: #3C3B3B;
@@ -2336,22 +2495,22 @@
 		left: 40.5px;
 		font-weight: 500;
 	}
-	
+
 	.social-list {
 		display: flex;
 	}
-	
+
 	.social-list img {
 		padding: 5px !important;
 		margin: 5px !important;
 	}
-	
+
 	/* Comments */
-	
+
 	span.commenthr {
 		padding-bottom: 20px;
 	}
-	
+
 	.comment-section h6 {
 		font-size: 20px;
 		text-transform: uppercase;
@@ -2360,26 +2519,26 @@
 		margin: 0;
 		text-align: center;
 	}
-	
+
 	.comment-section h6 hr {
 		border-color: #F7C221;
 		width: 30%;
 	}
-	
+
 	.comments {
 		padding: 0;
 	}
-	
+
 	.comments li {
 		border-top: 1px solid #ddd;
 		padding: 40px 0;
 		list-style: none;
 	}
-	
+
 	.comments li:first-child {
 		border-top: 1px solid transparent;
 	}
-	
+
 	#commentform {
 		margin:30px 0;
 		}
@@ -2388,25 +2547,25 @@
 		height: 50px;
 		font-weight: 500;
 		font-size: 12px;
-		}	
-		
+		}
+
 	#comment textarea {
 		height:150px !important;
 		}
-	
-	#comment span.required{ 
-		font-size: 13px; color: #ff0000; 
-		} 
+
+	#comment span.required{
+		font-size: 13px; color: #ff0000;
+		}
 	.c-author {
 		width: 120px;
 		float: left;
 	}
-	
+
 	.c-info {
 		margin-left: 20px;
 		position: relative;
 	}
-	
+
 	.c-info h4 {
 		margin: 0 0 6px;
 		color: #424242;
@@ -2414,7 +2573,7 @@
 		font-weight: 600;
 		display: inline-block;
 	}
-	
+
 	.c-time {
 		color: #999;
 		font-size: 12px;
@@ -2422,13 +2581,13 @@
 		margin-left: 10px;
 		letter-spacing: 0.1em;
 	}
-	
+
 	.c-info p {
 		font-size: 14px;
 		color: #858585;
 		padding: 15px 0;
 	}
-	
+
 	.reply {
 		font-size: 12px;
 		color: #F7C221;
@@ -2442,23 +2601,23 @@
 		top: 0px;
 		right: 0px;
 	}
-	
+
 	.reply:hover {
 		color: #F7C221;
 	}
-	
-	
+
+
 	.comment-sub {
 		margin-left: 145px;
 	}
-	
+
 	.comment-form {
 		border-top: 1px solid #ddd;
 		padding-top: 45px;
 	}
-	
+
 	/* Blog Page Header */
-		
+
 	.post-wrapper-top {
 		background: rgba(217, 151, 35, 0.85);
 		border: 3px solid #efefef;
@@ -2472,7 +2631,7 @@
 		top: 0;
 		z-index: 0;
 	}
-	
+
 	.post-wrapper-top h2 {
 		color: #fff;
 		display: inline-block;
@@ -2481,22 +2640,22 @@
 		padding: 30px 0;
 		position: relative;
 	}
-	
+
 	ul.breadcrumb {
 		margin: 40px;
 		background: none;
 		color: #FFF;
 	}
-	
+
 	i.fa.fa-long-arrow-left {
 		font-size: 15px;
 		margin-right: 10px;
 	}
-	
+
 	 .blog-carousel img {
 		width:100%;
 	 }
-	 
+
 	 ul.social-icons {
 		margin-top: 0px;
 	}
@@ -2573,13 +2732,13 @@
 /*	################################################################
 	18. SOCIAL MEDIA SECTION
 	################################################################# */
-	
+
 	.social-icons {
 		padding:0;
 		width:245px;
 		margin: -35px 0 10px 0;
 		text-align:center;
-		display:block; 
+		display:block;
 		overflow:hidden
 	}
 	.social-icons span a {
@@ -2592,11 +2751,11 @@
 		display:block;
 		float:left
 	}
-	
+
 	.social-icons i.fa {
 		font-size: 15px;
 	}
-	
+
 	#footer-style-2 .social-icons span a,
 	#footer-style-3 .social-icons span a,
 	#footer-style-1 .social-icons span a {
@@ -2604,33 +2763,33 @@
 		color:#686868;
 	}
 
-	
+
 /*	################################################################
 	20. Mobile Responsive
-	################################################################# */	
-	
+	################################################################# */
+
 	@media (max-width: 768px) { {
 		.home-content h1 {font-size:31px !important}
 		.tparrows,
 		.small_title,
 		.slider_menu a {display:none}
 	}
-	
+
 	ul.nav.navbar-nav.navbar-right {
 		background: rgba(0, 0, 0, 0.55);
 	}
-		
+
 	.tp-caption p {
 		margin-top:110px!important;
 		line-height:1.3;
-		
+
 		}
-		
+
 	.tp-caption h2 {
 		font-size : 26px!important;
-    }	 
-	
-	
+    }
+
+
 	#slider4container .tparrows:before,
 	#slider4container .tparrows:hover,
 	#slider4container .tparrows {
@@ -2643,14 +2802,13 @@
 	#slider4container .tparrows:hover	{
 		background:#fff !important
 	}
-	
+
 	.sliderbigtitle {
 	font-size: 26px;
 	}
-	
+
 /*	################################################################
 	21. CUSTOM CSS SECTION
 	################################################################# */
 
-		
-	
+
