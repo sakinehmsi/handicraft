@@ -247,6 +247,12 @@
 .fa-home:before {
   content: "\f015";
 }
+.fa-telegram:before {
+  content: "\f2c6";
+}
+.fa-shopping-cart:before {
+  content: "\f07a";
+}
 .fa-file-o:before {
   content: "\f016";
 }
