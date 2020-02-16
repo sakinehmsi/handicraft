@@ -30,11 +30,19 @@ Route::get('/userLogin/{id}', 'userController@favourites');
 
 Route::get('/login', 'loginController@showArtists')->name('login');
 
+Route::get('/designers', 'designerController@show');
 
+Route::get('/reduction', 'reductionController@showAll')->name('posts');
 
+Route::get('/', 'cartController@index');
 
+Route::get('cart', 'cartController@cart');
 
+Route::get('add-to-cart/{id}', 'cartController@addToCart');
 
+Route::patch('update-cart', 'cartController@update');
+
+Route::delete('remove-from-cart', 'cartController@remove');
 
 
 
