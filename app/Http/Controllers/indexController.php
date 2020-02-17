@@ -15,8 +15,7 @@ class indexController extends Controller
 {
 
 
-    public function showAll()
-    {
+    public function showAll(){
         $posts = DB::select('select * from posts');
         return view('index',['posts' => $posts]);
     }

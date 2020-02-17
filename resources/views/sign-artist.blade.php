@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     
-    <title>ATLAS ARTIST</title>
+    <title>ATLAS JOIN US </title>
     
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../css/bootstrap.css">
@@ -29,11 +30,10 @@
     <link rel="stylesheet" type="text/css" href="../css/settings.css" media="screen" />
     <!-- artist css -->
     <link rel="stylesheet" href="../css/artist-css.css">
-    {{-- select2 --}}
-    <link href="../css/select2.css" rel="stylesheet" />
+    {{-- login-css --}}
+    <link rel="stylesheet" href="../css/signin-css.css">
 </head>
 <body data-spy="scroll" data-offset="25">
-   
     <!--/HEADER SECTION -->
     <header class="header">
         <div class="container">
@@ -66,42 +66,43 @@
             </div>
         </div>
     </header>
+    
 
     
-    <!-- ARTIST LIST SECTION -->    
+
+    <!-- SIGN AS ARTIST SECTION -->    
     <section id="works" class="dark-wrapper color-333">
         <div class="container">
             <div class="title text-center">
                 <h2>this is ATLAS</h2>
+                <h3>Art is here</h3>
                 <hr>
             </div>
+            {{-- signup   --}}
             <div>
-                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
-
+                <div name="frm1" method="POST" id="signup-form" class="hide form-css">
                 
-                <table id="myTable">
-                    <tr class="head-of-table">
-                        <th style="width:20%;">picture</th>
-                        <th style="width:30%;">Name</th>
-                        <th style="width:50%;">
-                            <select onchange="select_state()" class="js-example-basic-single" name="state">
-                                <option value="All">all Art</option>
-                                <option  value="carpenter">carpentery</option>   
-                                <option value="painter">painter</option>
-                                <option value="macrame">macrame</option>
-                                <option value="other">other</option>
-                            </select>
-                        </th>
-                    </tr>
-                    @foreach ($artists as $artist)
-                        <tr class="clickable-row" data-href="{{ url('artist',$artist->id) }}">
-                            <td><img  src="data:image/png;base64,{{ chunk_split(base64_encode($artist->picture)) }}" alt="" class="artist-image-list" ></td>
-                            <td><h2>{{ $artist->name }}</h2></td>
-                            <td><h3>{{ $artist->art }}</h3></td>
-                        </tr>
-                    @endforeach
-                </table>
-            </div>     
+                    <input type="text" id="name1" name="email" class="fadeIn second" placeholder="email">
+                    <input type="text" id="password1" name="password" class="fadeIn third" placeholder="password">
+                    <input type="text" id="art" name="art" class="fadeIn fourth" placeholder="art">
+
+                    <input type="button" class=" fadeIn fourth signup" value="signUP" >
+                    <input type="button" class=" fadeIn fourth" value="Login to your account" onclick="showloginForm();">
+
+                </div>
+            </div>
+            {{-- signIn --}}
+            <div>
+                <div name="frm1"  class="form-css" method="POST" id="login-form">
+                    
+                    <input type="text" id="name" name="email" class="fadeIn second" placeholder="email">
+                    <input type="text" id="password" name="password" class="fadeIn third" placeholder="password">
+                    
+                    <input type="button" class="fadeIn fourth signin" value="signIn" >
+                    <input type="button" class=" fadeIn fourth" value="Create an account" onclick="showsignupForm();">
+                    
+                </div>
+            </div>
         </div>     
     </section>
 
@@ -118,52 +119,6 @@
             </div>    <!-- end title -->
         </div>  <!-- end container -->
     </section><!--/ Footer  End --> 
-
-    {{-- search artist by name --}}
-    <script>
-        function myFunction() {
-            // Declare variables
-            var input, filter, table, tr, td, i, txtValue,txtValue2;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-        
-            // Loop through all table rows, and hide those who don't match the search query
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1];
-                tdd = tr[i].getElementsByTagName("td")[2];
-                if (td || tdd) {
-                    txtValue = td.textContent || td.innerText;
-                    txtValuee = tdd.textContent || tdd.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValuee.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-        function select_state() {
-            var  filter, table, tr, td, i, txtValue;
-            filter = $(".js-example-basic-single").val().toUpperCase();
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-            
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[2];
-                if (td) {
-                    txtValue = td.textContent;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1 || filter == "ALL") { 
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        } 
-    </script>
-
     
     <!-- SECTION CLOSED -->
     
@@ -178,85 +133,112 @@
     <script src="../js/custom.js"></script>
     <script src="../js/jquery.unveilEffects.js"></script>
     <script src="../js/jquery.isotope.min.js"></script>
-    {{-- select2 --}}
-    <script src="../js/select2.js"></script>
-    <script>
-        $('.js-example-basic-single').select2({
-        });
-    </script>
-    {{-- search in list --}}
-    <script>
+    
+    <script type="text/javascript">
         (function ($) {
             var $container = $('.masonry_wrapper'),
-                colWidth = function () {
-                    var w = $container.width(), 
-                        columnNum = 1,
-                        columnWidth = 0;
-                    if (w > 1200) {
-                        columnNum  = 3;
-                    } else if (w > 900) {
-                        columnNum  = 3;
-                    } else if (w > 600) {
-                        columnNum  = 2;
-                    } else if (w > 300) {
-                        columnNum  = 1;
-                    }
-                    columnWidth = Math.floor(w/columnNum);
-                    $container.find('.item').each(function() {
-                        var $item = $(this),
-                            multiplier_w = $item.attr('class').match(/item-w(\d)/),
-                            multiplier_h = $item.attr('class').match(/item-h(\d)/),
-                            width = multiplier_w ? columnWidth*multiplier_w[1]-4 : columnWidth-4,
-                            height = multiplier_h ? columnWidth*multiplier_h[1]*0.5-4 : columnWidth*0.5-4;
-                        $item.css({
-                            width: width,
-                            height: height
-                        });
+            colWidth = function () {
+                var w = $container.width(), 
+                    columnNum = 1,
+                    columnWidth = 0;
+                if (w > 1200) {
+                    columnNum  = 3;
+                } else if (w > 900) {
+                    columnNum  = 3;
+                } else if (w > 600) {
+                    columnNum  = 2;
+                } else if (w > 300) {
+                    columnNum  = 1;
+                }
+                columnWidth = Math.floor(w/columnNum);
+                $container.find('.item').each(function() {
+                    var $item = $(this),
+                        multiplier_w = $item.attr('class').match(/item-w(\d)/),
+                        multiplier_h = $item.attr('class').match(/item-h(\d)/),
+                        width = multiplier_w ? columnWidth*multiplier_w[1]-4 : columnWidth-4,
+                        height = multiplier_h ? columnWidth*multiplier_h[1]*0.5-4 : columnWidth*0.5-4;
+                    $item.css({
+                        width: width,
+                        height: height
                     });
-                    return columnWidth;
-                }
-                            
-                function refreshWaypoints() {
-                    setTimeout(function() {
-                    }, 1000);   
-                }
-                            
-                $('nav.portfolio-filter ul li a').on('click', function() {
-                    var selector = $(this).attr('data-filter');
-                    $container.isotope({ filter: selector }, refreshWaypoints());
-                    $('nav.portfolio-filter ul li a').removeClass('active');
-                    $(this).addClass('active');
-                    return false;
                 });
-                    
-                function setPortfolio() { 
-                    setColumns();
-                    $container.isotope('reLayout');
-                }
-        
-                isotope = function () {
-                    $container.isotope({
-                        resizable: true,
-                        itemSelector: '.item',
-                        masonry: {
-                            columnWidth: colWidth(),
-                            gutterWidth: 0
-                        }
-                    });
-                };
+                return columnWidth;
+            }
+                        
+            function refreshWaypoints() {
+                setTimeout(function() {
+                }, 1000);   
+            }
+                        
+            $('nav.portfolio-filter ul li a').on('click', function() {
+                var selector = $(this).attr('data-filter');
+                $container.isotope({ filter: selector }, refreshWaypoints());
+                $('nav.portfolio-filter ul li a').removeClass('active');
+                $(this).addClass('active');
+                return false;
+            });
+                
+            function setPortfolio() { 
+                setColumns();
+                $container.isotope('reLayout');
+            }
+    
+            isotope = function () {
+                $container.isotope({
+                    resizable: true,
+                    itemSelector: '.item',
+                    masonry: {
+                        columnWidth: colWidth(),
+                        gutterWidth: 0
+                    }
+                });
+            };
             isotope();
             $(window).smartresize(isotope);
-            $(".clickable-row").click(function() { 
-                window.location = $(this).data("href");
-            });
-            }(jQuery));
+        }(jQuery));
+        //POST DATA TO DB FOR SIGN UP AS ARTIST :(
+        $('.signup').click(function(){
+            
+            email = $('#email').val();
+            password = $('#password').val();
+            $.post("{{route('signUp')}}",
+            {
+                '_token': '{{csrf_token()}}',
+                'aEmail':email,
+                'aPassword':password,
+                
+            })
+            .done(function() {
+                //refresh
+            })
+            .fail(function() {
+                alert( "error" );
+            })
+        });
+        //POST DATA TO DB FOR SIGN IN AS ARTIST   
+        $('.signin').click(function(){
+            email = $('#name').val();
+            password = $('#password').val();
+            $.post("{{route('signIn')}}",
+            {
+                '_token': '{{csrf_token()}}',
+                'aEmail':email,
+                'aPassword':password,
+                
+            })
+            .done(function(result) {
+                window.location.replace("http://127.0.0.1:8000/artist/"+result);
+            })
+            .fail(function() {
+                window.location.replace("http://127.0.0.1:8000/Collaboration");
+                alert( "error" );
+            })
+        });
     </script>
-
     <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
     <script type="text/javascript" src="../js/jquery.themepunch.plugins.min.js"></script>
     <script type="text/javascript" src="../js/jquery.themepunch.revolution.min.js"></script>
     
-
     <script type="text/javascript">
         var revapi;
         jQuery(document).ready(function() {
@@ -271,10 +253,20 @@
             fullScreenOffsetContainer: ""
         });
     });	//ready
+
+
+        function showsignupForm() {
+            $("#login-form").addClass("hide");
+            $("#signup-form").removeClass("hide")
+        }
+
+        function showloginForm() {
+            $("#login-form").removeClass("hide");
+            $("#signup-form").addClass("hide")
+        }
+
     </script>
     
-    
-
     <!-- Animation Scripts-->
     <script src="../js/scrollReveal.js"></script>
     <script>
@@ -294,15 +286,6 @@
             });  	
                 jQuery("a[data-gal^='prettyPhoto']").prettyPhoto({animationSpeed:'slow',slideshow:false,overlay_gallery: false,theme:'light_square',social_tools:false,deeplinking:false});
         })(jQuery);
-    </script>
-        
-    <!-- Video Player o-->
-    <script src="../js/jquery.mb.YTPlayer.js"></script>    
-    <script type="text/javascript">
-        (function($) {
-        "use strict"
-        $(".player").mb_YTPlayer();
-        })(jQuery);	
     </script>
     
 </body>

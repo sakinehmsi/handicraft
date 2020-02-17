@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
-    <title>ATLAS Favourite</title>
+    <title>ATLAS MY PROFILE</title>
     
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../css/bootstrap.css">
@@ -32,13 +32,20 @@
     <link rel="stylesheet" href="../css/artist-css.css">
 </head>
 <body data-spy="scroll" data-offset="25">
-    <!-- HEADER SECTION -->
+    <!--/HEADER SECTION -->
+
     <header class="header">
         <div class="container">
             <div class="navbar navbar-default" role="navigation">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                       <a href="index.html" class="navbar-brand">ATLAS</a>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        </button>
+                        <a href="index.html" class="navbar-brand">ATLAS</a>
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -50,6 +57,7 @@
                         <li><a data-scroll href="#team" class="int-collapse-menu">Team</a></li>
                         <li><a data-scroll href="#works" class="int-collapse-menu">Portfolio</a></li>
                         <li><a data-scroll href="#contact" class="int-collapse-menu">Contact</a></li>
+                        <li><a href="{{route('signform')}}">JOIN US</a></li>
                         <li><a href="{{route('artists')}}">Artists</a></li>
                         </ul>
                     </div>
@@ -57,46 +65,68 @@
             </div>
         </div>
     </header>
-    <!-- LIKED POSTS SECTION -->    
+    
+
+    
+
+    <!-- Artist Profile Section -->    
     <section id="works" class="dark-wrapper color-333">
         <div class="container">
             <div class="title text-center">
                 <h2>this is ATLAS</h2>
-                <h3>Dear {{ $user->name }}! your Favourite is here</h3>
+                <h3>Art is here</h3>
                 <hr>
             </div>
                 
             <div class="norow">
+                <div>
+                    <img src="data:image/png;base64,{{ chunk_split(base64_encode($artist->picture)) }}" alt="" class="artist-image-profile" >
+                    <h1>{{ $artist->name }}</h1>
+                    <h4>{{ $artist->bio }}</h4>
+                </div>
+                
                 <div class="margin-top-108 masonry_wrapper" data-scroll-reveal="enter from the bottom after 0.5s">
-                    @foreach($likes as $like)
-                        @if(($like->liked)==1)
-                            @foreach ($posts as $post)
-                                @if ( (($like->artistID)==($post->artistID)) && ($like->postID) == ($post->id) ) 
-                                    <div class="item entry item-h2 photography print">
-                                        <img src="data:image/png;base64,{{ chunk_split(base64_encode($post->post)) }}" alt="" class="img-responsive">
-                                        <div data-href="{{ url('artist',$post->artistID) }}" class="hovereffect clickable-row">
-                                            <a data-gal="prettyPhoto[product-gallery]" rel="bookmark" href="data:image/png;base64,{{ chunk_split(base64_encode($post->post)) }}"><span class="icon plus-icon-css"><i class="fa fa-plus"></i></span></a>
-                                            <div class="discount-css">
-                                                @if ( $post->discount == 1)
-                                                <h5>{{$post->discountPercent}}OFF</h5>
-                                                @endif
-                                            </div>
-                                            <div class="buttons">
-                                                <h4>price : {{$post->price}}</h4> 
-                                                <div>
-                                                    <span class="like-css like" artistID="{{$like->artistID}}" postID="{{$post->id}}"><i class="fa fa-heart"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
+                    <!--/ show Artist Posts -->
+                    @foreach ($posts as $post)
+                        <div class="item entry item-h2 photography print">
+                            <img src="data:image/png;base64,{{ chunk_split(base64_encode($post->post)) }}" alt="" class="img-responsive">
+                                <div class="hovereffect">
+                                <a data-gal="prettyPhoto[product-gallery]" rel="bookmark" href="data:image/png;base64,{{ chunk_split(base64_encode($post->post)) }}"><span artistID="{{$post->artistID}}" postID="{{$post->id}}" class="icon plus-icon-css deletePost"><i class="fa fa-minus"></i></span></a>
+                                    <div class="discount-css">
+                                        @if ( $post->discount == 1)
+                                        <h5>{{$post->discountPercent}}OFF</h5>
+                                        @endif
                                     </div>
-                                @endif
-                            @endforeach 
-                        @endif
-                    @endforeach                                                     
+                                    <div class="buttons">
+                                        <h4>price : {{$post->price}}</h4> 
+                                    </div>
+                                </div>
+                        </div>
+                    @endforeach 
+                    
+                    <!--/ this div use in addPost by artist -->
+                    {{-- <div class="item entry item-h2 photography print">
+                        <div class="hovereffect">
+                            <a><span class="icon plus-icon-css addPost"><i class="fa fa-plus"></i></span></a>
+                        </div>
+                    </div>  --}}
+
                 </div>
             </div>
         </div>     
     </section>
+
+    <!--/ this div use in addPost by artist -->
+
+    {{-- <div class="hide" method="post" action="" enctype="multipart/form-data" id="myform">
+        Select image to upload:
+        <input type="file" name="file" id="file">
+        <input type="text" name="price" id="price" placeholder="price">
+        <input type="text" name="discount" id="discount" placeholder="have a discount">
+        <input type="text" name="discountPercent" id="discountPercent" placeholder="discountPercent">
+        <input type="text" name="_token" id="_token" class="hide">
+        <input type="button" class="button" value="Upload" id="but_upload">
+    </div> --}}
 
     <!--/ FOOTER SECTION-->  
     <section id="footer" class="footer-wrapper text-center">
@@ -111,8 +141,6 @@
             </div>    <!-- end title -->
         </div>  <!-- end container -->
     </section><!--/ Footer  End --> 
-    
-    <!-- SECTION CLOSED -->
     
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>   
     <script src="../js/jquery.js"></script>
@@ -187,11 +215,59 @@
             };
             isotope();
             $(window).smartresize(isotope);
-        }(jQuery)); 
-        //go to artist page
-        $(".clickable-row").click(function() {
-                window.location = $(this).data("href");
-            });
+        }(jQuery));
+
+        //DELETE POST BY ARTIST
+        $('.deletePost').click(function(e) {
+            e.stopPropagation();   
+            $artistId = $(this).attr("artistID");
+            $countpost = $(this).attr("postID");
+            $.post("{{route('dropPost')}}",
+            {
+                '_token': '{{csrf_token()}}',
+                'aID':$artistId,
+                'pID':$countpost,
+                
+            })
+            .done(function() {
+                alert( "success" );
+            })
+            .fail(function() {
+                alert( "error" );
+            })
+        });
+
+        //ADD POST FORM not hidden (use in ADD POST BY ARTIST) :(
+        // $('.addPost').click(function(e) {
+        //    $("#myform").removeClass("hide");
+        // });
+        //add post by artist :(
+        // $('#but_upload').click(function(){
+        //     var file = $("#file")[0].files[0];
+        //     var img;
+        //     if (file) {
+        //         var reader = new FileReader();
+        //         reader.readAsDataURL(file);
+        //         reader.onload = function(e) {
+        //             // browser completed reading file - display it
+        //             img = e.target.result;
+        //             $.post("{{route('addPost')}}",
+        //             {
+        //                 '_token': '{{csrf_token()}}',
+        //                 'img': img,
+        //                 'price': $('#price').val(),
+        //                 'discount': $('#discount').val(),
+        //                 'discountPercent': $('#discountPercent').val()
+        //             })
+        //             .done(function() {
+        //                 alert( "success" );
+        //             })
+        //             .fail(function() {
+        //                 alert( "error" );
+        //             });
+        //         };
+        //     }
+        // });
     </script>
     <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
     <script type="text/javascript" src="../js/jquery.themepunch.plugins.min.js"></script>
@@ -210,16 +286,16 @@
             fullScreen:"on",
             fullScreenOffsetContainer: ""
         });
-    });	//ready
+    });
     </script>
     
     <!-- Animation Scripts-->
     <script src="../js/scrollReveal.js"></script>
     <script>
-            (function($) {
+        (function($) {
             "use strict"
-                window.scrollReveal = new scrollReveal();
-            })(jQuery);
+            window.scrollReveal = new scrollReveal();
+        })(jQuery);
     </script>
     
     <!-- Portofolio Pretty photo JS -->       
@@ -235,4 +311,4 @@
     </script>
     
 </body>
-</html
+</html>

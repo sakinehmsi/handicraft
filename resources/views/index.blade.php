@@ -61,8 +61,8 @@
                             <li><a href="{{route('login')}}">Login</a></li>
                             <li><a data-scroll href="#offers" class="int-collapse-menu">Offers</a></li>
                             <li><a data-scroll href="#features" class="int-collapse-menu">Favorites</a></li>
-                            <li><a data-scroll href="#about" class="int-collapse-menu">About us</a></li>
-                            <li><a data-scroll href="#features" class="int-collapse-menu"><i class="material-icons">add_shopping_cart</i></a></li>
+                            <li><a href="{{route('signform')}}">JOIN US</a></li>
+                            <li><a href="#features" class="int-collapse-menu"><i class="material-icons">add_shopping_cart</i></a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div><!--/.container-fluid -->
@@ -72,8 +72,7 @@
 	
 
     <section id="home" class="sliderwrapper clearfix">
-	
-       <div class="tp-banner-container">
+	    <div class="tp-banner-container">
             <div class="tp-banner">
                 <ul>
        			  <li data-transition="fade" data-slotamount="7" data-masterspeed="1500" >
@@ -239,53 +238,53 @@
 
 
 
-<!--/ ABOUT SECTION -->
-<section id="about" class="about-wrapper">
-    <div class="container">
-        <div data-scroll-reveal="enter from the bottom after 0.3s" class="title text-center">
-            <h2>About us</h2>
-            {{--<p>ETIAM DIGNISSIM LEO VESTIBULUM VOLUTPAT MORB</p>--}}
-            <hr>
-        </div><!-- end title -->
+    <!--/ ABOUT SECTION -->
+    <section id="about" class="about-wrapper">
+        <div class="container">
+            <div data-scroll-reveal="enter from the bottom after 0.3s" class="title text-center">
+                <h2>About us</h2>
+                {{--<p>ETIAM DIGNISSIM LEO VESTIBULUM VOLUTPAT MORB</p>--}}
+                <hr>
+            </div><!-- end title -->
 
-        <div class="clearfix">
-            <div class="widget-wrapper">
-                <div class="container">
-                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-                        <div class="widget">
-                            <h3>HOW WE MADE <span>Atlas</span> AND WHY?</h3>
-                            <p>We have worked on ATLAS about a month. Our team was consist of four software engineering students and we made ATLAS as a project for software
-                                engineering course. First of all we should find a good subject to work on. The main idea behind creating ATLAS was add trading capability
-                                to base features of instagram which means that the site users can like, share, follow and buy their interests;
-                                and also can present and sell their handmade products.<br>
-                                We also used laravel.Laravel is a free, open-source PHP web framework,
-                                created by Taylor Otwell and intended for the development of web applications following the model–view–controller
-                                architectural pattern and based on Symfony. Laravel is a web application framework with expressive, elegant syntax.</a> </p>
+            <div class="clearfix">
+                <div class="widget-wrapper">
+                    <div class="container">
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                            <div class="widget">
+                                <h3>HOW WE MADE <span>Atlas</span> AND WHY?</h3>
+                                <p>We have worked on ATLAS about a month. Our team was consist of four software engineering students and we made ATLAS as a project for software
+                                    engineering course. First of all we should find a good subject to work on. The main idea behind creating ATLAS was add trading capability
+                                    to base features of instagram which means that the site users can like, share, follow and buy their interests;
+                                    and also can present and sell their handmade products.<br>
+                                    We also used laravel.Laravel is a free, open-source PHP web framework,
+                                    created by Taylor Otwell and intended for the development of web applications following the model–view–controller
+                                    architectural pattern and based on Symfony. Laravel is a web application framework with expressive, elegant syntax.</a> </p>
 
-                        </div><!-- end widget -->
-                    </div><!-- end col-lg-6 -->
+                            </div><!-- end widget -->
+                        </div><!-- end col-lg-6 -->
 
-                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                        <div class="widget">
-                            <div class="entry">
-                                <img src="images/banner.png" alt="" class="img-responsive">
-                                <div class="magnifier">
-                                    <div class="buttons">
-                                        <a class="st" rel="bookmark" href="blog-single-sidebar.html"><i class="fa fa-link"></i></a>
-                                    </div><!-- end buttons -->
-                                </div><!-- end magnifier -->
-                                <div class="post-type">
-                                    <i class="fa fa-picture-o"></i>
-                                </div><!-- end pull-right -->
-                            </div><!-- end entry -->
-                        </div><!-- end widget -->
-                    </div><!-- end col-lg-6 -->
-                </div><!-- end container -->
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                            <div class="widget">
+                                <div class="entry">
+                                    <img src="images/banner.png" alt="" class="img-responsive">
+                                    <div class="magnifier">
+                                        <div class="buttons">
+                                            <a class="st" rel="bookmark" href="blog-single-sidebar.html"><i class="fa fa-link"></i></a>
+                                        </div><!-- end buttons -->
+                                    </div><!-- end magnifier -->
+                                    <div class="post-type">
+                                        <i class="fa fa-picture-o"></i>
+                                    </div><!-- end pull-right -->
+                                </div><!-- end entry -->
+                            </div><!-- end widget -->
+                        </div><!-- end col-lg-6 -->
+                    </div><!-- end container -->
+                </div>
             </div>
-        </div>
-    </div><!-- end container -->
+        </div><!-- end container -->
 
-</section><!-- End About Section -->
+    </section><!-- End About Section -->
 
         
     <!--/ FOOTER SECTION-->  
@@ -402,8 +401,6 @@
         });	//ready
     </script>
 		
-		
-    
     <!-- Animation Scripts-->
     <script src="js/scrollReveal.js"></script>
     <script>

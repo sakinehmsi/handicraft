@@ -33,7 +33,6 @@
 </head>
 <body data-spy="scroll" data-offset="25">
     <!--/HEADER SECTION -->
-
     <header class="header">
         <div class="container">
             <div class="navbar navbar-default" role="navigation">
@@ -57,6 +56,7 @@
                         <li><a data-scroll href="#team" class="int-collapse-menu">Team</a></li>
                         <li><a data-scroll href="#works" class="int-collapse-menu">Portfolio</a></li>
                         <li><a data-scroll href="#contact" class="int-collapse-menu">Contact</a></li>
+                        <li><a href="{{route('signform')}}">JOIN US</a></li>
                         <li><a href="{{route('artists')}}">Artists</a></li>
                         </ul>
                     </div>
@@ -64,11 +64,11 @@
             </div>
         </div>
     </header>
-    <?php
-    // $artist=$arr_view_data['var3'];
-    // dd($likes);
-    ?>
-    <!-- ARTIST LIST SECTION -->    
+    
+
+    
+
+    <!-- Artist Profile SECTION -->    
     <section id="works" class="dark-wrapper color-333">
         <div class="container">
             <div class="title text-center">
@@ -81,11 +81,11 @@
                 <div>
                     <img src="data:image/png;base64,{{ chunk_split(base64_encode($artist->picture)) }}" alt="" class="artist-image-profile" >
                     <h1>{{ $artist->name }}</h1>
-                    {{-- <h3>{{ $artist->art }}</h3> --}}
                     <h4>{{ $artist->bio }}</h4>
                 </div>
                 
                 <div class="margin-top-108 masonry_wrapper" data-scroll-reveal="enter from the bottom after 0.5s">
+                    <!-- Show ArtistPosts -->
                     @foreach ($posts as $post)
                         <div class="item entry item-h2 photography print">
                             <img src="data:image/png;base64,{{ chunk_split(base64_encode($post->post)) }}" alt="" class="img-responsive">
@@ -93,7 +93,7 @@
                                     <a data-gal="prettyPhoto[product-gallery]" rel="bookmark" href="data:image/png;base64,{{ chunk_split(base64_encode($post->post)) }}"><span class="icon plus-icon-css"><i class="fa fa-plus"></i></span></a>
                                     <div class="discount-css">
                                         @if ( $post->discount == 1)
-                                            <h5>با تخفیف</h5>
+                                        <h5>{{$post->discountPercent}}OFF</h5>
                                         @endif
                                     </div>
                                     <div class="buttons">
@@ -115,7 +115,7 @@
                                     </div>
                                 </div>
                         </div>
-                    @endforeach                                                      
+                    @endforeach 
                 </div>
             </div>
         </div>     
@@ -211,7 +211,7 @@
             isotope();
             $(window).smartresize(isotope);
         }(jQuery));
-        //like post
+        //like post by user
         $('.like').click(function(){
             $artistId = $(this).attr("artistID");
             $countpost = $(this).attr("postID");
@@ -230,7 +230,7 @@
                 alert( "error" );
             })
         });
-        //unlike post
+        //unlike post by user
         $('.unlike').click(function(){
             $artistId = $(this).attr("artistID");
             $countpost = $(this).attr("postID");
