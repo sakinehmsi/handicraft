@@ -69,56 +69,75 @@
     </div>
 </header>
 
-<body>
-<div>
-    <table id="cart" class="table table-hover table-condensed">
-        <thead>
-        <tr>
-            <th style="width:50%">Product</th>
-            <th style="width:10%">Price</th>
-            <th style="width:8%">Quantity</th>
-            <th style="width:22%" class="text-center">Subtotal</th>
-            <th style="width:10%"></th>
-        </tr>
-        </thead>
-        <tbody>
-          @foreach($cart as $cart)
-                <tr>
-                    <td data-th="Product">
-                        <div class="row">
-                            <div class="col-sm-3 hidden-xs"> <img src="data:image/png;base64,{{ chunk_split(base64_encode($post->post)) }}" alt="" class="img-responsive">
-                            <div class="col-sm-9">
-                                <h4 class="nomargin"></h4>
-                            </div>
-                        </div>
-                    </td>
-                    <td data-th="Price"></td>
-                    <td data-th="Quantity">
-                        <input type="number"  class="form-control quantity" />
-                    </td>
-                    <td data-th="Subtotal" class="text-center"></td>
-                    <td class="actions" data-th="">
-                        <button class="btn btn-info btn-sm update-cart"><i class="fa fa-refresh"></i></button>
-                        <button class="btn btn-danger btn-sm remove-from-cart"><i class="fa fa-trash-o"></i></button>
-                    </td>
-                </tr>
-            @endforeach
-        @endif
+<body data-spy="scroll" data-offset="25">
+    <!--/HEADER SECTION -->
+<header class="header">
+    <div class="container">
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="index.html" class="navbar-brand">ATLAS</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a data-scroll href="#home" class="int-collapse-menu">Home</a></li>
+                        <li><a data-scroll href="#features" class="int-collapse-menu">Why Us ?</a></li>
+                        <li><a data-scroll href="#about" class="int-collapse-menu">About</a></li>
+                        <li><a data-scroll href="#services" class="int-collapse-menu">Services</a></li>
+                        <li><a data-scroll href="#pricing" class="int-collapse-menu">Pricing</a></li>
+                        <li><a data-scroll href="#team" class="int-collapse-menu">Team</a></li>
+                        <li><a data-scroll href="#works" class="int-collapse-menu">Portfolio</a></li>
+                        <li><a data-scroll href="#contact" class="int-collapse-menu">Contact</a></li>
+                        <li><a data-scroll href="#reduction" class="int-collapse-menu">reduction</a></li>
+                        <li><a data-scroll href="#cart" class="fa fa-shopping-cart fa-2x"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
-        </tbody>
-        <tfoot>
-        <tr class="visible-xs">
-            <td class="text-center"><strong>Total</strong></td>
-        </tr>
-        <tr>
-            <td><a href="{{ url('/') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-            <td colspan="2" class="hidden-xs"></td>
-            <td class="hidden-xs text-center"><strong>Total</strong></td>
-        </tr>
-        </tfoot>
-    </table>
-</div>
-</body>
+    <!-- ARTIST LIST SECTION -->
+    <section id="cart" class="dark-wrapper color-333">
+        <div class="container">
+            <div class="title text-center">
+                <h2>this is ATLAS</h2>
+                <hr>
+                <h3>Dear {{ $user->name }}! your shopping cart is here</h3>
+                <h3>       </h3>
+            </div>
+
+        <table id="myTable">
+                    <tr class="head-of-table">
+                        <th style="width:25%;">image</th>
+                        <th style="width:25%;">artist id</th>
+                        <th style="width:25%;">price</th>
+                        <th style="width:25%;">discount</th>
+                    </tr>
+                     @foreach($carts as $cart)
+                        @if(($cart->added)==1)
+                            @foreach ($posts as $post)
+                                @if ( (($cart->artistID)==($post->artistID)) && ($cart->postID) == ($post->id) )
+                        <tr>
+                            <td><img  src="data:image/png;base64,{{ chunk_split(base64_encode($post->post)) }}" alt="" class="artist-image-list" ></td>
+                            <td><h2>{{ $post->artistID }}</h2></td>
+                            <td><h3>{{ $post->price }}</h3></td>
+                            <td><h3>{{ $post->discountPercent }}</h3></td>
+                        </tr>
+                                @endif
+                             @endforeach
+                         @endif
+                    @endforeach
+                </table>
+            </div>
+        </div>
+    </section>
 
 
 <!--/ FOOTER SECTION-->

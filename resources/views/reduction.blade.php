@@ -102,10 +102,15 @@
                                             <h5>Discounted</h5>
                                         @endif
                                     </div>
-                                    <div class="buttons">
+                                     <div class="buttons">
                                         <h4>price : {{$post->price}}</h4>
                                         <div>
                                             <?php $hasLike = 0 ?>
+                                            @foreach ($likes as $like)
+                                                @if (  ($like->postID) == ($post->id) && (($like->artistID)==($post->artistID))&& (($like->liked)==1) )
+                                                    <?php $hasLike = 1 ?>
+                                               @endif
+                                            @endforeach
                                             @if($hasLike == 0)
                                                 <span class="like-css like" artistID="{{$post->artistID}}" postID="{{$post->id}}"><i class="fa fa-heart-o"></i></span>
                                             @else

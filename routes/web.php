@@ -30,19 +30,17 @@ Route::get('/userLogin/{id}', 'userController@favourites');
 
 Route::get('/login', 'loginController@showArtists')->name('login');
 
+
+
 Route::get('/designers', 'designerController@show');
 
 Route::get('/reduction', 'reductionController@showAll')->name('posts');
 
-Route::get('/', 'cartController@index');
+Route::get('/cart/{id}', 'cartController@show');
 
-Route::get('cart', 'cartController@cart');
+Route::post('/cart/add', 'cartController@add_To_Cart')->name('add');
 
-Route::get('add-to-cart/{id}', 'cartController@addToCart');
-
-Route::patch('update-cart', 'cartController@update');
-
-Route::delete('remove-from-cart', 'cartController@remove');
+Route::post('/cart/delete', 'cartController@delete_from_Cart')->name('delete');
 
 
 

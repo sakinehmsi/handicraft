@@ -5,92 +5,24 @@ use Illuminate\Support\Facades\DB;
 class cartController extends Controller
 {
 
-    public function show()
-    {
-
-        return view('cart');
-
+     public function show($id){
+        $user = DB::select('select * from users where id = ?',[$id]);
+        $carts = DB::select('select * from shopping_cart where userID= ?', [$id]);
+        $posts = DB::select('select * from posts');
+        return View('cart')->with('user', $user[0])
+                                ->with('carts',$carts)
+                                ->with('posts',$posts);
     }
 
-   public function addToCart($id)
-    {
-      // $posts = DB::table('posts')->Select('*')->where('id',$id)->get();
-       $posts = Posts::find($id);
-
-        if(!$posts) {
-
-            abort(404);
-
-        }
-
-        $cart = session()->get('cart');
-
-        // if cart is empty then this the first product
-        if(!$cart) {
-
-            $cart = [
-                    $id => [
-                        "quantity" => 1,
-                        "id" => $posts->id,
-
-                    ]
-            ];
-
-            session()->put('cart', $cart);
-
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
-        }
-
-        // if cart not empty then check if this product exist then increment quantity
-        if(isset($cart[$id])) {
-
-            $cart[$id]['quantity']++;
-
-            session()->put('cart', $cart);
-
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
-
-        }
-
-        // if item not exist in cart then add to cart with quantity = 1
-        $cart[$id] = [
-             "quantity" => 1,
-             "id" => $posts->id
-        ];
-
-        session()->put('cart', $cart);
-
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+    public function add_to_cart(){
+        $artistID = $_POST['aID'];
+        $postID = $_POST['pID'];
+        DB::insert("INSERT INTO `shopping_cart` (`userID`,`postID`,`artistID`,`added`) VALUES ('2',".$postID.",".$artistID.",'1'); ");
     }
+    public function delete_from_cart(){
+        $artistID = $_POST['aID'];
+        $postID = $_POST['pID'];
+        DB::update('DELETE FROM shopping_cart WHERE artistID="'.$artistID.'" and postID="'.$postID.'";');
 
-    public function update(Request $request)
-    {
-        if($request->id and $request->quantity)
-        {
-            $cart = session()->get('cart');
-
-            $cart[$request->id]["quantity"] = $request->quantity;
-
-            session()->put('cart', $cart);
-
-            session()->flash('success', 'Cart updated successfully');
-        }
-    }
-
-    public function remove(Request $request)
-    {
-        if($request->id) {
-
-            $cart = session()->get('cart');
-
-            if(isset($cart[$request->id])) {
-
-                unset($cart[$request->id]);
-
-                session()->put('cart', $cart);
-            }
-
-            session()->flash('success', 'Product removed successfully');
-        }
-    }
+}
 }
