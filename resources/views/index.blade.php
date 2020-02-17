@@ -59,6 +59,7 @@
                             <li><a data-scroll href="#features" class="int-collapse-menu">Category</a></li>
                             <li><a href="{{route('artists')}}">Artists</a></li>
                             <li><a href="{{route('login')}}">Login</a></li>
+                            <li><a href="{{route('registration')}}">register</a></li>
                             <li><a data-scroll href="#offers" class="int-collapse-menu">Offers</a></li>
                             <li><a data-scroll href="#features" class="int-collapse-menu">Favorites</a></li>
                             <li><a data-scroll href="#about" class="int-collapse-menu">About us</a></li>

@@ -28,7 +28,7 @@ Route::get('/userLogin', 'userController@signin');
 Route::get('/userLogin', 'userController@signup');
 Route::get('/userLogin/{id}', 'userController@favourites');
 
-Route::get('/login', 'loginController@showArtists')->name('login');
+//Route::get('/login', 'loginController@showArtists')->name('login');
 
 Route::get('/designers', 'designerController@show');
 
@@ -43,6 +43,13 @@ Route::get('add-to-cart/{id}', 'cartController@addToCart');
 Route::patch('update-cart', 'cartController@update');
 
 Route::delete('remove-from-cart', 'cartController@remove');
+
+Route::get('login', 'AuthController@showlogin')->name('login');
+Route::post('post-login', 'AuthController@postLogin');
+Route::get('registration', 'AuthController@registration')->name('registration');
+Route::post('post-registration', 'AuthController@postRegistration');
+Route::get('dashboard', 'AuthController@dashboard')->name('dashboard');
+Route::get('logout', 'AuthController@logout');
 
 
 
