@@ -56,12 +56,14 @@
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="active"><a data-scroll href="#home" class="int-collapse-menu">Home</a></li>
-                            <li><a data-scroll href="#features" class="int-collapse-menu">Category</a></li>
+                            <li><a data-scroll href="#offers" class="int-collapse-menu">Offers</a></li>
+                            <li><a data-scroll href="reduction" class="int-collapse-menu">Reduction</a></li>
                             <li><a href="{{route('artists')}}">Artists</a></li>
                             <li><a href="{{route('login')}}">Login</a></li>
-                            <li><a data-scroll href="#offers" class="int-collapse-menu">Offers</a></li>
+                            <li><a href="{{route('registration')}}">register</a></li>
                             <li><a data-scroll href="#features" class="int-collapse-menu">Favorites</a></li>
-                            <li><a data-scroll href="#about" class="int-collapse-menu">About us</a></li>
+                            <li><a data-scroll href="designers" class="int-collapse-menu">Team</a></li>
+                            <li><a data-scroll href="#about" class="int-collapse-menu">about</a></li>
                             <li><a data-scroll href="#features" class="int-collapse-menu"><i class="material-icons">add_shopping_cart</i></a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
@@ -230,8 +232,8 @@
         <div class="overlay">
             <div class="container">
                 <div class="featured-box" data-effect="slide-bottom">
-                    <h3>THIS IS ATLAS <br>THE ART IS HERE</h3>
-                    <img class="img-respnsive" src="images/banner.png" alt="">
+                    {{--<h3>THIS IS ATLAS <br>THE ART IS HERE</h3>--}}
+                    <img class="img-respnsive" src="images/banner.png"  >
                 </div>
             </div><!-- end container -->
         </div><!-- end overlay -->
@@ -271,7 +273,7 @@
                                 <img src="images/banner.png" alt="" class="img-responsive">
                                 <div class="magnifier">
                                     <div class="buttons">
-                                        <a class="st" rel="bookmark" href="blog-single-sidebar.html"><i class="fa fa-link"></i></a>
+                                        <a class="st" rel="bookmark" href="images/banner.png"><i class="fa fa-link"></i></a>
                                     </div><!-- end buttons -->
                                 </div><!-- end magnifier -->
                                 <div class="post-type">
