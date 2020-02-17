@@ -56,13 +56,20 @@
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="active"><a data-scroll href="#home" class="int-collapse-menu">Home</a></li>
-                            <li><a data-scroll href="#features" class="int-collapse-menu">Category</a></li>
+                            <li><a data-scroll href="#offers" class="int-collapse-menu">Offers</a></li>
+                            <li><a data-scroll href="reduction" class="int-collapse-menu">Reduction</a></li>
                             <li><a href="{{route('artists')}}">Artists</a></li>
                             <li><a href="{{route('login')}}">Login</a></li>
-                            <li><a data-scroll href="#offers" class="int-collapse-menu">Offers</a></li>
+                            <li><a href="{{route('registration')}}">register</a></li>
                             <li><a data-scroll href="#features" class="int-collapse-menu">Favorites</a></li>
+<<<<<<< HEAD
                             <li><a href="{{route('signform')}}">JOIN US</a></li>
                             <li><a href="#features" class="int-collapse-menu"><i class="material-icons">add_shopping_cart</i></a></li>
+=======
+                            <li><a data-scroll href="designers" class="int-collapse-menu">Team</a></li>
+                            <li><a data-scroll href="#about" class="int-collapse-menu">about</a></li>
+                            <li><a data-scroll href="#features" class="int-collapse-menu"><i class="material-icons">add_shopping_cart</i></a></li>
+>>>>>>> 4012791602cd113114cd881518b3409e42fc8d73
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div><!--/.container-fluid -->
@@ -229,8 +236,8 @@
         <div class="overlay">
             <div class="container">
                 <div class="featured-box" data-effect="slide-bottom">
-                    <h3>THIS IS ATLAS <br>THE ART IS HERE</h3>
-                    <img class="img-respnsive" src="images/banner.png" alt="">
+                    {{--<h3>THIS IS ATLAS <br>THE ART IS HERE</h3>--}}
+                    <img class="img-respnsive" src="images/banner.png"  >
                 </div>
             </div><!-- end container -->
         </div><!-- end overlay -->
@@ -264,6 +271,7 @@
                             </div><!-- end widget -->
                         </div><!-- end col-lg-6 -->
 
+
                         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                             <div class="widget">
                                 <div class="entry">
@@ -281,6 +289,23 @@
                         </div><!-- end col-lg-6 -->
                     </div><!-- end container -->
                 </div>
+
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                        <div class="widget">
+                            <div class="entry">
+                                <img src="images/banner.png" alt="" class="img-responsive">
+                                <div class="magnifier">
+                                    <div class="buttons">
+                                        <a class="st" rel="bookmark" href="images/banner.png"><i class="fa fa-link"></i></a>
+                                    </div><!-- end buttons -->
+                                </div><!-- end magnifier -->
+                                <div class="post-type">
+                                    <i class="fa fa-picture-o"></i>
+                                </div><!-- end pull-right -->
+                            </div><!-- end entry -->
+                        </div><!-- end widget -->
+                    </div><!-- end col-lg-6 -->
+                </div><!-- end container -->
             </div>
         </div><!-- end container -->
 

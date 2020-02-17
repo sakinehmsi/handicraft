@@ -48,9 +48,15 @@ Route::get('/login', 'loginController@showArtists')->name('login');
 
 
 
+Route::get('/designers', 'designerController@show');
 
+Route::get('/reduction', 'reductionController@showAll')->name('posts');
 
+Route::get('/cart/{id}', 'cartController@show');
 
+Route::post('/cart/add', 'cartController@add_To_Cart')->name('add');
+
+Route::post('/cart/delete', 'cartController@delete_from_Cart')->name('delete');
 
 
 
