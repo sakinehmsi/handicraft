@@ -34,7 +34,8 @@ Route::get('/designers', 'designerController@show');
 
 Route::get('/reduction', 'reductionController@showAll')->name('posts');
 
-Route::get('/', 'cartController@index');
+
+Route::get('/showcart', 'cartController@show');//Route::get('/', 'cartController@show');
 
 Route::get('cart', 'cartController@cart');
 

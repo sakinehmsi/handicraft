@@ -83,14 +83,10 @@
                         <input type="submit" class="fadeIn fifth" value="Sign In" action="index.php">
                         <div id="formFooter">
                             not registerd?
-                            <a class="underlineHover" href="#">Creat an acount</a>
+                            <a class="underlineHover" href="registration">Creat an acount</a>
 
                         </div>
                     </form>
-
-
-
-
 
                 <!-- Remind Passowrd -->
 
@@ -106,11 +102,11 @@
     <div class="container">
         <div class="title text-center" data-scroll-reveal="enter from the bottom after 0.5s">
             <div class="aligncenter">
-                <a href="index.html" class="navbar-brand">ATLAS</a>
+                <a href="index.php" class="navbar-brand">ATLAS</a>
                 <p>All rights reserved by Atlas. Any copy of this site
                     It is illegal.</p>
                 <p>Designed in 2019</p>
-                <a data-scroll-reveal="enter from the bottom after 0.3s" href="#home"><i class="fa fa-angle-up"></i></a>
+                <a data-scroll-reveal="enter from the bottom after 0.3s" href="#works"><i class="fa fa-angle-up"></i></a>
             </div>
         </div>    <!-- end title -->
     </div>  <!-- end container -->

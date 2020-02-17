@@ -89,8 +89,8 @@
 
                 <!-- Remind Passowrd -->
                 <div id="formFooter">
-                    <div class="text-center">If you have an account?
-                        <a class="small" href="{{url('login')}}">Sign In</a></div>
+                    <div class="text-center">you already have an account?
+                        <a class="underlineHover" href="login">Sign In</a></div>
                 </div>
 
             </div>
@@ -104,11 +104,11 @@
     <div class="container">
         <div class="title text-center" data-scroll-reveal="enter from the bottom after 0.5s">
             <div class="aligncenter">
-                <a href="index.html" class="navbar-brand">ATLAS</a>
+                <a href="index.php" class="navbar-brand">ATLAS</a>
                 <p>All rights reserved by Atlas. Any copy of this site
                     It is illegal.</p>
                 <p>Designed in 2019</p>
-                <a data-scroll-reveal="enter from the bottom after 0.3s" href="#home"><i class="fa fa-angle-up"></i></a>
+                <a data-scroll-reveal="enter from the bottom after 0.3s" href="#works"><i class="fa fa-angle-up"></i></a>
             </div>
         </div>    <!-- end title -->
     </div>  <!-- end container -->
