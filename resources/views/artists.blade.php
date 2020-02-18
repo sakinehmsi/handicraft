@@ -94,7 +94,7 @@
                         </th>
                     </tr>
                     @foreach ($artists as $artist)
-                        <tr class="clickable-row" data-href="{{ url('artist',$artist->id) }}">
+                        <tr class="clickable-row" data-href="{{ url('arrtist',$artist->id) }}">
                             <td><img  src="data:image/png;base64,{{ chunk_split(base64_encode($artist->picture)) }}" alt="" class="artist-image-list" ></td>
                             <td><h2>{{ $artist->name }}</h2></td>
                             <td><h3>{{ $artist->art }}</h3></td>

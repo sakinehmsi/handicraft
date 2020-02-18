@@ -19,6 +19,7 @@ class reductionController extends Controller
         $artist = DB::select('select * from artists');
         $posts = DB::select('select * from posts');
         $likes = DB::select('select * from likes');
+        $category = DB::select('select * from category');
 
     $action = null;
     if ($request->has('action')) {
@@ -29,28 +30,33 @@ class reductionController extends Controller
           $posts = DB::table('posts')->paginate(9);
           return view('reduction')->with('artist', $artist[0])
                                  ->with('posts', $posts)
-                                 ->with('likes', $likes);
+                                 ->with('likes', $likes)
+           ->with('category', $category);
        } elseif($action=='discount') {
          $posts = DB::table('posts')->Select('*')->where('discount',1)->orderBy('discountPercent', 'DESC')->paginate(9);
           return view('reduction')->with('artist', $artist[0])
                                  ->with('posts', $posts)
-                                 ->with('likes', $likes);
+                                 ->with('likes', $likes)
+              ->with('category', $category);
        } elseif($action=='cheap') {
           $posts = DB::table('posts')->Select('*')->orderBy('price', 'ASC')->paginate(9);
           return view('reduction')->with('artist', $artist[0])
                                  ->with('posts', $posts)
-                                 ->with('likes', $likes);
+                                 ->with('likes', $likes)
+              ->with('category', $category);
        } elseif($action=='expensive') {
           $posts = DB::table('posts')->Select('*')->orderBy('price', 'DESC')->paginate(9);
           return view('reduction')->with('artist', $artist[0])
                                  ->with('posts', $posts)
-                                 ->with('likes', $likes);
+                                 ->with('likes', $likes)
+              ->with('category', $category);
        }
     } else {
        $posts = DB::table('posts')->paginate(9);
        return view('reduction')->with('artist', $artist[0])
                                  ->with('posts', $posts)
-                                 ->with('likes', $likes);
+                                 ->with('likes', $likes)
+           ->with('category', $category);
     }
     }
 

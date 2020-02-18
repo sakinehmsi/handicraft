@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="../css/login-css.css">
     <link rel="stylesheet" href="../css/artist-css.css">
 
+
     <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
     <link rel="stylesheet" type="text/css" href="../css/settings.css" media="screen" />
     <!-- artist css -->
@@ -59,7 +60,7 @@
 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.php" class="int-collapse-menu">Home</a></li>
+                        <li><a href="{{route('home')}}" class="int-collapse-menu">Home</a></li>
                         <li><a data-scroll href="index.php#offers" class="int-collapse-menu">Offers</a></li>
                         <li><a data-scroll href="reduction" class="int-collapse-menu">Reduction</a></li>
                         <li><a href="{{route('artists')}}">Artists</a></li>

@@ -30,7 +30,9 @@
     <!-- artist css -->
     <link rel="stylesheet" href="../css/artist-css.css">
 
+
     <link href="../css/select2.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body data-spy="scroll" data-offset="25" class="color-333">
 <div class="animationload"><div class="loader">Loading...</div></div> <!-- End Preloader -->
@@ -51,16 +53,26 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a data-scroll href="#home" class="int-collapse-menu">Home</a></li>
-                        <li><a data-scroll href="#features" class="int-collapse-menu">Why Us ?</a></li>
-                        <li><a data-scroll href="#about" class="int-collapse-menu">About</a></li>
-                        <li><a data-scroll href="#services" class="int-collapse-menu">Services</a></li>
-                        <li><a data-scroll href="#pricing" class="int-collapse-menu">Pricing</a></li>
-                        <li><a data-scroll href="#team" class="int-collapse-menu">Team</a></li>
-                        <li><a data-scroll href="#works" class="int-collapse-menu">Portfolio</a></li>
-                        <li><a data-scroll href="#contact" class="int-collapse-menu">Contact</a></li>
-                        <li><a data-scroll href="#reduction" class="int-collapse-menu">reduction</a></li>
-                        <li><a data-scroll href="#cart" class="fa fa-shopping-cart fa-2x"></a></li>
+                        <li><a href="{{route('home')}}" class="int-collapse-menu">Home</a></li>
+                        <li><a data-scroll href="{{route('home')}}#offers" class="int-collapse-menu">Offers</a></li>
+                        <li><a href="{{route('reduction')}}" class="int-collapse-menu">Reduction</a></li>
+                        <li><a href="{{route('artists')}}">Artists</a></li>
+                        <li><a href="{{route('login')}}">Login</a></li>
+                        <li><a href="{{route('registration')}}">register</a></li>
+                        <li><a  href="{{route('favourites')}}" class="int-collapse-menu">Favorites</a></li>
+
+                        <li><a href="{{route('signform')}}">JOIN US</a></li>
+                        <li><a href="{{url('cart',ucfirst(Auth()->user()->id))}}" class="int-collapse-menu"><i class="material-icons">add_shopping_cart</i></a></li>
+
+                        <li><a data-scroll href="designers" class="int-collapse-menu">Team</a></li>
+                        <li><a data-scroll href="#about" class="int-collapse-menu">about</a></li>
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">CATEGORY<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                @foreach ($category as $cat)
+                                    <li><a href="{{ url('category',$cat->id) }}">{{ $cat->name }}</a></li>
+                                @endforeach
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -96,8 +108,11 @@
         <div class="item entry item-h2 photography print">
             <img src="data:image/png;base64,{{ chunk_split(base64_encode($post->post)) }}" alt="" class="img-responsive">
             <div class="hovereffect">
-                <a data-gal="prettyPhoto[product-gallery]" rel="bookmark" href="data:image/png;base64,{{ chunk_split(base64_encode($post->post)) }}"><span class="icon"><i class="fa fa-plus"></i></span></a>
-                <div class="discount-css">
+                <?php $u= $post->artistID; ?>
+                <a href="{{ url('artist/'.$u.' ') }}"><img src="data:image/png;base64,{{ chunk_split(base64_encode($post->post)) }}" alt="" class="img-responsive">
+                {{--<a data-gal="prettyPhoto[product-gallery]" rel="bookmark" href="data:image/png;base64,{{ chunk_split(base64_encode($post->post)) }}"><span class="icon"><i class="fa fa-plus"></i></span></a>--}}
+                </a>
+                    <div class="discount-css">
                                         @if ( $post->discount == 1)
                                             <h5>Discounted</h5>
                                         @endif
@@ -239,6 +254,45 @@
 
 
     }(jQuery));
+
+	//like post by user
+	$('.like').click(function(){
+		$artistId = $(this).attr("artistID");
+		$countpost = $(this).attr("postID");
+		$.post("{{route('likePost')}}",
+			{
+				'_token': '{{csrf_token()}}',
+				'liked': 1,
+				'aID':$artistId,
+				'pID':$countpost,
+
+			})
+			.done(function() {
+				alert( "success" );
+			})
+			.fail(function() {
+				alert( "error" );
+			})
+	});
+	//unlike post by user
+	$('.unlike').click(function(){
+		$artistId = $(this).attr("artistID");
+		$countpost = $(this).attr("postID");
+		$.post("{{route('unlikePost')}}",
+			{
+				'_token': '{{csrf_token()}}',
+				'liked': 0,
+				'aID':$artistId,
+				'pID':$countpost,
+
+			})
+			.done(function() {
+				alert( "success" );
+			})
+			.fail(function() {
+				alert( "error" );
+			})
+	});
 </script>
 
 <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
