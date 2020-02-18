@@ -33,6 +33,7 @@
     <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
     <link rel="stylesheet" type="text/css" href="../css/settings.css" media="screen" />
     <!-- artist css -->
+    <link rel="stylesheet" href="../css/artist-css.css">
     <link rel="stylesheet" href="../css/login-css.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="../css/animation.css">
     <!-- Main Stylesheet CSS -->
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/artist-css.css">
 
     <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
     <link rel="stylesheet" type="text/css" href="../css/settings.css" media="screen" />

@@ -14,7 +14,7 @@
     
 //show home page
 Route::get('/', 'indexController@showAll');
-Route::get('/{id}', 'indexController@showCategory')->name('category');
+Route::get('category/{id}', 'indexController@showCategory')->name('category');
 
 //sign up and sign in as user
 Route::get('login', 'AuthController@showlogin')->name('login');
