@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard - Tutsmake.com</title>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>CATEGORY</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../css/bootstrap.css">
@@ -23,21 +24,16 @@
     <!-- Animation Effect CSS -->
     <link rel="stylesheet" href="../css/animation.css">
     <!-- Main Stylesheet CSS -->
-    <link rel="stylesheet" href="../../public/css/style.css">
-    <link rel="stylesheet" href="../css/login-css.css">
+    <link rel="stylesheet" href="../css/style.css">
 
     <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
     <link rel="stylesheet" type="text/css" href="../css/settings.css" media="screen" />
     <!-- artist css -->
     <link rel="stylesheet" href="../css/artist-css.css">
-    {{-- select2 --}}
-    <link href="../css/select2.css" rel="stylesheet" />
-    {{--icons--}}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 </head>
 <body data-spy="scroll" data-offset="25">
-
+<!--/HEADER SECTION -->
 
 <header class="header">
     <div class="container">
@@ -50,46 +46,48 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="index.php" class="navbar-brand">ATLAS <br> </a>
-                    <div class="logout">
-                        <h3><a class="small" href="{{url('logout')}}">Logout</a></h3>
-                    </div>
-                </div><!-- end navbar-header -->
-
+                    <a href="index.html" class="navbar-brand">ATLAS</a>
+                </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="index.php" class="int-collapse-menu">Home</a></li>
-                        <li><a data-scroll href="index.php#offers" class="int-collapse-menu">Offers</a></li>
+                        <li><a data-scroll href="#offers" class="int-collapse-menu">Offers</a></li>
                         <li><a data-scroll href="reduction" class="int-collapse-menu">Reduction</a></li>
                         <li><a href="{{route('artists')}}">Artists</a></li>
+                        <li><a href="{{route('login')}}">Login</a></li>
+                        <li><a href="{{route('registration')}}">register</a></li>
                         <li><a data-scroll href="#features" class="int-collapse-menu">Favorites</a></li>
                         <li><a data-scroll href="designers" class="int-collapse-menu">Team</a></li>
                         <li><a data-scroll href="index.php#about" class="int-collapse-menu">about</a></li>
                         <li><a data-scroll href="#features" class="int-collapse-menu"><i class="material-icons">add_shopping_cart</i></a></li>
                     </ul>
-                </div><!--/.nav-collapse -->
-            </div><!--/.container-fluid -->
+                </div>
+            </div>
         </div>
-    </div><!-- end container -->
-</header><!-- end header -->
+    </div>
+</header>
 
 <!-- ARTIST LIST SECTION -->
 <section id="works" class="dark-wrapper color-333">
     <div class="container">
         <div class="title text-center">
-            <h2> Welcome {{ ucfirst(Auth()->user()->name) }}</h2>
-            <hr>
+            <h2>this is ATLAS</h2>
+            <h3>Art is here</h3>
         </div>
+
         <div class="norow">
             <div>
+
             </div>
 
-        </div>
-        <div class="wrapper fadeInDown">
-            <div id="formContent">
-                <div class="fadeIn first">
-                    <img src="demos/unknown.png" id="icon" alt="User Icon" />
-                </div>
+            <div class="margin-top-108 masonry_wrapper" data-scroll-reveal="enter from the bottom after 0.5s">
+                @foreach ($posts as $post)
+
+                    <div class="item entry item-h2 photography print">
+                        <?php $u= $post->artistID; ?>
+                        <a href="{{ url('artist/'.$u.' ') }}"> <img src="data:image/png;base64,{{ chunk_split(base64_encode($post->post)) }}" alt="" class="img-responsive"></a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -100,16 +98,17 @@
     <div class="container">
         <div class="title text-center" data-scroll-reveal="enter from the bottom after 0.5s">
             <div class="aligncenter">
-                <a href="index.php" class="navbar-brand">ATLAS</a>
+                <a href="index.html" class="navbar-brand">ATLAS</a>
                 <p>All rights reserved by Atlas. Any copy of this site
                     It is illegal.</p>
                 <p>Designed in 2019</p>
                 <a data-scroll-reveal="enter from the bottom after 0.3s" href="#home"><i class="fa fa-angle-up"></i></a>
-            </div>
-        </div>    <!-- end title -->
-    </div>  <!-- end container -->
+            </div>    <!-- end title -->
+        </div>
+    </div><!-- end container -->
 </section><!--/ Footer  End -->
 
+<!-- SECTION CLOSED -->
 
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script src="../js/jquery.js"></script>
@@ -227,10 +226,43 @@
 <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
 <script type="text/javascript" src="../js/jquery.themepunch.plugins.min.js"></script>
 <script type="text/javascript" src="../js/jquery.themepunch.revolution.min.js"></script>
+
+<script type="text/javascript">
+	var revapi;
+	jQuery(document).ready(function() {
+		revapi = jQuery('.tp-banner').revolution(
+			{
+				delay:9000,
+				startwidth:1170,
+				startheight:500,
+				hideThumbs:10,
+				fullWidth:"off",
+				fullScreen:"on",
+				fullScreenOffsetContainer: ""
+			});
+	});	//ready
+</script>
+
+<!-- Animation Scripts-->
+<script src="../js/scrollReveal.js"></script>
+<script>
+	(function($) {
+		"use strict"
+		window.scrollReveal = new scrollReveal();
+	})(jQuery);
+</script>
+
+<!-- Portofolio Pretty photo JS -->
+<script src="../js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript">
+	(function($) {
+		"use strict";
+		jQuery('a[data-gal]').each(function() {
+			jQuery(this).attr('rel', jQuery(this).data('gal'));
+		});
+		jQuery("a[data-gal^='prettyPhoto']").prettyPhoto({animationSpeed:'slow',slideshow:false,overlay_gallery: false,theme:'light_square',social_tools:false,deeplinking:false});
+	})(jQuery);
+</script>
+
 </body>
 </html>
-
-
-
-
-

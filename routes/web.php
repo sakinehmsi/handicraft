@@ -11,10 +11,19 @@
     |
     */
 
-
     
 //show home page
-Route::get('/', 'indexController@showAll')->name('posts');
+Route::get('/', 'indexController@showAll');
+Route::get('/{id}', 'indexController@showCategory')->name('category');
+
+//sign up and sign in as user
+Route::get('login', 'AuthController@showlogin')->name('login');
+Route::post('post-login', 'AuthController@postLogin');
+Route::get('registration', 'AuthController@registration')->name('registration');
+Route::post('post-registration', 'AuthController@postRegistration');
+Route::get('dashboard', 'AuthController@dashboard')->name('dashboard');
+Route::get('logout', 'AuthController@logout');
+
 
 //sign up and sign in as artist
 Route::get('/joinUS', 'artistController@showsignform')->name('signform');

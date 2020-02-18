@@ -62,14 +62,19 @@
                             <li><a href="{{route('login')}}">Login</a></li>
                             <li><a href="{{route('registration')}}">register</a></li>
                             <li><a data-scroll href="#features" class="int-collapse-menu">Favorites</a></li>
-<<<<<<< HEAD
+
                             <li><a href="{{route('signform')}}">JOIN US</a></li>
                             <li><a href="#features" class="int-collapse-menu"><i class="material-icons">add_shopping_cart</i></a></li>
-=======
+
                             <li><a data-scroll href="designers" class="int-collapse-menu">Team</a></li>
                             <li><a data-scroll href="#about" class="int-collapse-menu">about</a></li>
-                            <li><a data-scroll href="#features" class="int-collapse-menu"><i class="material-icons">add_shopping_cart</i></a></li>
->>>>>>> 4012791602cd113114cd881518b3409e42fc8d73
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">CATEGORY<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    @foreach ($category as $cat)
+                                        <li><a href="{{ url($cat->id) }}">{{ $cat->name }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div><!--/.container-fluid -->
@@ -230,18 +235,18 @@
     </section><!-- end work -->
 
 
-    
-    <!--/ FEATURE SECTION -->  
-    <section id="featured_parallax" class="parallax" style="background-image: url('demos/siyahghlam.jpg');" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="20">
-        <div class="overlay">
-            <div class="container">
-                <div class="featured-box" data-effect="slide-bottom">
-                    {{--<h3>THIS IS ATLAS <br>THE ART IS HERE</h3>--}}
-                    <img class="img-respnsive" src="images/banner.png"  >
-                </div>
-            </div><!-- end container -->
-        </div><!-- end overlay -->
-    </section><!--/ Featured Parallex -->
+
+<!--/ FEATURE SECTION -->
+<section id="featured_parallax" class="parallax" style="background-image: url('demos/siyahghlam.jpg');" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="20">
+    <div class="overlay">
+        <div class="container">
+            <div class="featured-box" data-effect="slide-bottom">
+                {{--<h3>THIS IS ATLAS <br>THE ART IS HERE</h3>--}}
+                <img class="img-respnsive" src="images/banner.png"  >
+            </div>
+        </div><!-- end container -->
+    </div><!-- end overlay -->
+</section><!--/ Featured Parallex -->
 
 
 
@@ -278,7 +283,7 @@
                                     <img src="images/banner.png" alt="" class="img-responsive">
                                     <div class="magnifier">
                                         <div class="buttons">
-                                            <a class="st" rel="bookmark" href="blog-single-sidebar.html"><i class="fa fa-link"></i></a>
+                                            <a class="st" rel="bookmark" href="images/banner.png"><i class="fa fa-link"></i></a>
                                         </div><!-- end buttons -->
                                     </div><!-- end magnifier -->
                                     <div class="post-type">
